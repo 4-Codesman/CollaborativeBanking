@@ -55,7 +55,7 @@ jobs:
           action: "upload"
           app_location: "/"     # points to root where angular.json is
           output_location: "dist/CollaborativeBanking/browser"  # ✅ must match build output in angular.json
-          skip_app_build: true                       # ✅ because you already built manually
+          #skip_app_build: true                       # ✅ because you already built manually
 
           ###### End of Repository/Build Configurations ######
 
