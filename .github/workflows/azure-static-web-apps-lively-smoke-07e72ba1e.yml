@@ -22,6 +22,12 @@ jobs:
         with:
           submodules: true
           lfs: false
+          
+      - name: Use Node.js 20.19.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.19.0
+
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
       - name: Get Id Token
