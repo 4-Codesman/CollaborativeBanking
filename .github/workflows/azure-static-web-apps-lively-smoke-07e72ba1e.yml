@@ -53,8 +53,8 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_LIVELY_SMOKE_07E72BA1E }}
           github_id_token: ${{ steps.idtoken.outputs.result }}
           action: "upload"
-          app_location: "dist/CollaborativeBanking"     # points to root where angular.json is
-          output_location: "dist/CollaborativeBanking" # ✅ must match build output in angular.json
+          app_location: "/"     # points to root where angular.json is
+          output_location: "dist/CollaborativeBanking/browser"  # ✅ must match build output in angular.json
           skip_app_build: true                       # ✅ because you already built manually
 
           ###### End of Repository/Build Configurations ######
