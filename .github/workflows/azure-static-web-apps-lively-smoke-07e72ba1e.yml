@@ -43,7 +43,6 @@ jobs:
           app_location: "/" 
           output_location: "dist/csr-ui"
           skip_app_build: true
-          github_id_token: ${{ steps.idtoken.outputs.result }}
 
 
   close_pull_request_job:
