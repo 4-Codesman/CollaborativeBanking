@@ -34,6 +34,12 @@ jobs:
       - name: Build Angular App
         run: npm run build
 
+      - name: Move build output to app_location
+        run: |
+          rm -rf build_output
+          cp -r dist/CollaborativeBanking/browser build_output
+
+
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
         
@@ -53,9 +59,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_LIVELY_SMOKE_07E72BA1E }}
           github_id_token: ${{ steps.idtoken.outputs.result }}
           action: "upload"
-          app_location: "/"     # points to root where angular.json is
-          output_location: "dist/CollaborativeBanking/browser"  # ✅ must match build output in angular.json
-          #skip_app_build: true                       # ✅ because you already built manually
+          app_location: "build_output"     # points to root where angular.json is
+          output_location: ""  # ✅ must match build output in angular.json
+          skip_app_build: true                       # ✅ because you already built manually
 
           ###### End of Repository/Build Configurations ######
 
