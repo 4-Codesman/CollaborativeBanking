@@ -1,10 +1,10 @@
 export const environment = {
   production: false,
-  firebaseConfig: {
-    apiKey: "AIzaSyBalXBEIKgzHo23MIzBpEYIwqTv-Neopsc",  // ✅ double check this is correct from Firebase Console
+  firebase: {
+    apiKey: "AIzaSyBalXBEIKgzHo23MIzBpEYIwqTv-Neopsc",
     authDomain: "collaborativebanking.firebaseapp.com",
     projectId: "collaborativebanking",
-    storageBucket: "collaborativebanking.appspot.com",  // ✅ fix typo: should be .appspot.com
+    storageBucket: "collaborativebanking.appspot.com",
     messagingSenderId: "32856308947",
     appId: "1:32856308947:web:5489604833e896d2632826",
     measurementId: "G-SX92BENWR9"
