@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Auth, GoogleAuthProvider, signInWithPopup } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -9,8 +10,9 @@ import { DataService } from '../../services/data.service';
   standalone: true
 })
 export class LandingComponent {
-  private auth: Auth = inject(Auth);  // ✅ Use DI to get the already-initialized Auth
+  private auth: Auth = inject(Auth);
   private dataService: DataService = inject(DataService);
+  private router: Router = inject(Router);
 
   signInWithGoogle() {
     const provider = new GoogleAuthProvider();
@@ -19,7 +21,7 @@ export class LandingComponent {
       .then((result) => {
         console.log('✅ Signed in as:', result.user.displayName);
 
-        const user ={
+        const user = {
           uID: result.user.uid,
           uEmail: result.user.email,
           uName: result.user.displayName
@@ -33,6 +35,9 @@ export class LandingComponent {
             console.error(error);
           }
         });
+
+        // ✅ Always redirect after Firebase login
+        this.router.navigate(['/home']);
       })
       .catch((error) => {
         console.error('❌ Sign-in error:', error.message);
