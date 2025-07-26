@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  firebaseConfig: {
+  firebase: {
     apiKey: "AIzaSyBalXBEIKgzHo23MIzBpEYIwqTv-Neopsc",
     authDomain: "collaborativebanking.firebaseapp.com",
     projectId: "collaborativebanking",
