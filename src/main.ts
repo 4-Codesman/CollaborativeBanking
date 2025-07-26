@@ -10,7 +10,7 @@ bootstrapApplication(App, {
   ...appConfig,
   providers: [
     ...(appConfig.providers || []),
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),  // ✅ Correct key
+    provideFirebaseApp(() => initializeApp(environment.firebase)),  // ✅ Correct key
     provideAuth(() => getAuth())                                          // ✅ Auth provider
   ]
 }).catch((err) => console.error(err));
