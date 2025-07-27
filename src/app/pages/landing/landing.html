@@ -1,17 +1,25 @@
-<section class="landing-container">
-  <header>
-    <img src="assets/images/discovery-logo.png" alt="Discovery Bank Logo" class="logo" />
-  </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Collaborative Banking</title>
+</head>
+<body>
+  <section class="hero-container">
 
-  <h1>Modernizing Stokvels Through Collaborative Banking</h1>
-  <p>
-    Discovery Collaborative Banking is a platform that reimagines traditional stokvels by combining community saving with digital transparency, gamified rewards, and responsible financial behavior.
-  </p>
+    <section class="searchbar-heading">
+      <h1 class="typewriter">Collaborative Banking</h1>
+    </section>
 
-  <div class="btn-group">
-    <button routerLink="/home">Sign Up</button>
-    <button (click)="signInWithGoogle()" class="secondary">Sign In</button>
+    <p class="slogan">By Discovery</p>
 
-  </div>
-</section>
-
+    <p class="description">
+      Discovery Collaborative Banking is a platform that reimagines traditional stokvels by combining 
+      community saving with digital transparency, gamified rewards, and responsible financial behavior.
+    </p>
+    
+    <div class="btn-group fixed-buttons">
+      <button class="cta-primary" routerLink="/home">Sign Up</button>
+      <button class="cta-primary" (click)="signInWithGoogle()">Sign In</button>
+    </div>
+  </section>
+</body>
