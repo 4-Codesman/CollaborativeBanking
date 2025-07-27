@@ -1,0 +1,49 @@
+<main class="cStokvel-container">
+    <header class="cStokvel-header">
+      <h1>Create Stokvel</h1>
+    </header>
+  
+    <section class="form-card">
+      <form id="createForm" enctype="multipart/form-data">
+        
+       
+        <label for="title">Stokvel Name</label>
+        <input type="text" id="title" name="title" required />
+  
+        <label for="stokvelType">Type</label>
+        <div class="stokvel-type">
+            <input type="radio" name="stokvelType" value="no-interest" required>
+            No Interest (Traditional)
+          
+            <input type="radio" name="stokvelType" value="interest" required>
+            Interest-Bearing
+        </div>
+        
+        <label for="amount">Payout Amount</label>
+        <input type="number" step="any" id="amount" name="amount" placeholder="Amount in Rands" required />
+
+        <label for="period">Payout Period</label>
+            <select id="payoutPeriod" name="payoutPeriod" required>
+                <option value="" disabled selected>Select a period</option>
+                <option value="weekly">Weekly</option>
+                <option value="biweekly">Biweekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="quarterly">Quarterly</option>
+                <option value="anually">Anually</option>
+            </select>
+
+
+        <label for="members">Add Members</label>
+        <input 
+          type="text" 
+          id="members" 
+          name="members" 
+          placeholder="Username or Email"
+        />
+  
+       
+        <button type="submit" class="create-button">Create Stokvel</button>
+      </form>
+    </section>
+  </main>
+  
