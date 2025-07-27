@@ -66,6 +66,7 @@
 
 .fixed-buttons {
   display: flex;
+  color: #002f6c;
   justify-content: center;  
   gap: 1rem;                
   margin-top: 2rem;         
@@ -74,7 +75,7 @@
 
 .fixed-buttons .cta-primary {
   background: #ffff01;           /* Discovery Yellow */
-  color: #0b1d3a;                /* Discovery Deep Blue */
+  color: #002f6c;               /* Discovery Deep Blue */
   border: none;
   padding: 1.2rem 3rem;
   font-size: 1.4rem;
