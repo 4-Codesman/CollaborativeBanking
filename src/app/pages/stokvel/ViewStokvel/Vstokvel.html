@@ -1,27 +1,29 @@
+
 <main class="vStokvel-container">
   <header class="vStokvel-header">
-    <h1>View Stokvels</h1>
+    <h1>Your Stokvel Groups</h1>
   </header>
 
   <section class="vStokvel-content">
     <div class="vStokvel-list">
-      <div *ngIf="loading">
+      <div *ngIf="loading" class="loading-text">
         Loading your stokvels...
       </div>
 
       <div *ngIf="!loading && stokvelIds.length > 0">
-        <h3>Your Stokvels:</h3>
-        <ul>
-          <li *ngFor="let id of stokvelIds">
-            {{ id }}
-          </li>
-        </ul>
+        <div class="stokvel-cards">
+          <div class="stokvel-card" *ngFor="let id of stokvelIds">
+            <h2>Stokvel ID: {{ id }}</h2>
+            <p>Date, next payout and Stokvel name go here</p>
+          </div>
+        </div>
       </div>
 
-      <div *ngIf="!loading && stokvelIds.length === 0">
+      <div *ngIf="!loading && stokvelIds.length === 0" class="empty-text">
         No stokvels yet.<br />
-        Create or Join a stokvel community
+        Create or Join a stokvel community.
       </div>
     </div>
   </section>
+
 </main>
