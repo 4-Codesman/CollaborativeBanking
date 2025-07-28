@@ -31,7 +31,9 @@
                 <option value="quarterly">Quarterly</option>
                 <option value="anually">Anually</option>
             </select>
-
+            
+        <label for="startDate">Start Date</label>
+        <input type="date" id="startDate" name="startDate" required />
 
         <label for="members">Add Members</label>
         <input 
@@ -46,4 +48,16 @@
       </form>
     </section>
   </main>
+
+  <script>
+    const today= new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day= String(today.getDate()).padStart(2, '0');
+    
+    const todayString = `${year}-${month}-${day}`;
+
+    document.getElementById('startDate').setAttribute('min',todayString);
+
+</script>
   

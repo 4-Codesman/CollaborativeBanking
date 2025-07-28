@@ -33,10 +33,24 @@
     font-weight: bold;
     color: #002f6c;
     display: block;
-    margin-top: 1rem;  
+    margin-top: 2.2rem;  
+    margin-bottom: 0.3rem;
   }
   
-  form input[type="text"] {
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="date"],
+  form select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  form select {
     width: 100%;
     padding: 0.8rem;
     border: 2px solid #ccc;
@@ -149,4 +163,3 @@
     background: #ffb500;
     transform: scale(1.05);
   }
-  
