@@ -18,6 +18,11 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
+            "stylePreprocessorOptions": {
+            "includePaths": [
+              "src"
+            ]
+            },
             "assets": [
               "src/assets",
               "src/favicon.ico"

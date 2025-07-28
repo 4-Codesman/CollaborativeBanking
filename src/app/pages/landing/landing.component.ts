@@ -27,6 +27,8 @@ export class LandingComponent {
           uName: result.user.displayName
         };
 
+        localStorage.setItem('Email', user.uEmail || '');
+
         this.dataService.postUserLogin(user).subscribe({
           next: (response) => {
             console.log(response);
@@ -35,7 +37,6 @@ export class LandingComponent {
             console.error(error);
           }
         });
-
         // ✅ Always redirect after Firebase login
         this.router.navigate(['/home']);
       })

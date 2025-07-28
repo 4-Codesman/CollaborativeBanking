@@ -5,7 +5,23 @@
 
   <section class="vStokvel-content">
     <div class="vStokvel-list">
-     No stokvels yet.
-     Create or Join a stokvel community
+      <div *ngIf="loading">
+        Loading your stokvels...
+      </div>
+
+      <div *ngIf="!loading && stokvelIds.length > 0">
+        <h3>Your Stokvels:</h3>
+        <ul>
+          <li *ngFor="let id of stokvelIds">
+            {{ id }}
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="!loading && stokvelIds.length === 0">
+        No stokvels yet.<br />
+        Create or Join a stokvel community
+      </div>
     </div>
   </section>
+</main>
