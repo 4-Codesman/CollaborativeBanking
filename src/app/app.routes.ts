@@ -6,6 +6,7 @@ import { StokvelComponent } from './pages/stokvel/stokvel.component';
 import { CStokvelComponent } from './pages/stokvel/CreateStokvel/Cstokvel.component';
 import { VStokvelComponent } from './pages/stokvel/ViewStokvel/Vstokvel.component';
 import { JStokvelComponent } from './pages/stokvel/JoinStokvel/Jstokvel.component';
+import { AccountSettings } from './account-settings/account-settings';
 
 
 export const routes: Routes = [
@@ -15,5 +16,6 @@ export const routes: Routes = [
   { path: 'stokvel', component: StokvelComponent },
   {path: 'stokvel/create', component: CStokvelComponent},
   {path: 'stokvel/view', component: VStokvelComponent},
-  {path: 'stokvel/join', component: JStokvelComponent}
+  {path: 'stokvel/join', component: JStokvelComponent},
+  {path: 'account-settings', component: AccountSettings }
 ];
