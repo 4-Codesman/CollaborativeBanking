@@ -1,0 +1,80 @@
+.home-wrapper {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #f1f5fa, #ffffff);
+  min-height: 100vh;
+  padding: 2rem;
+  color: #333;
+}
+
+.welcome-banner {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-banner h1 {
+  color: #002f6c;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-banner p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+.card h2 {
+  color: #0070c0;
+  margin-bottom: 1rem;
+}
+
+.card p,
+.card ul {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.card li {
+  padding: 0.3rem 0;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button {
+  background-color: #0070c0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
