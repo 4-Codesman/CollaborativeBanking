@@ -10,7 +10,7 @@ import { JStokvelComponent } from './pages/stokvel/JoinStokvel/Jstokvel.componen
 
 export const routes: Routes = [
   { path: '', component: LandingComponent }, // this is the homepage
-  { path: 'settings', component: Settings }
+  { path: 'settings', component: Settings },
   { path: 'home', component: HomeComponent },
   { path: 'stokvel', component: StokvelComponent },
   {path: 'stokvel/create', component: CStokvelComponent},
