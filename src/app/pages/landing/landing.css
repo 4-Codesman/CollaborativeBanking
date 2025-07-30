@@ -1,43 +1,131 @@
-.landing-container {
-  padding: 2rem;
-  text-align: center;
-  background-color: var(--discovery-white);
-  color: var(--discovery-black);
+.hero-container {
+  background: linear-gradient(to bottom right, #f1f5fa, #ffffff);
   min-height: 100vh;
+  padding: 2rem;
+  color: #333;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
-.logo {
-  height: 40px;
+/* Translucent framed box around the typewriter heading */
+.searchbar-heading {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem 4rem;
+  border-radius: 60px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   margin-bottom: 2rem;
 }
 
-h1 {
-  color: var(--discovery-purple);
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+/* Typewriter Heading */
+.typewriter {
+  font-size: 6rem;               /* Huge heading */
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid white; /* Thicker blinking cursor */
+  color: #002f6c;                /* Discovery Blue */
+  width: 0;
+  animation: typing 1.5s steps(22, end) forwards, blink 0.7s step-start infinite;
+  padding-right: 8px;
+  margin: 0;
 }
 
-p {
-  font-size: 1rem;
-  max-width: 400px;
-  margin: 0 auto 2rem;
+@keyframes typing {
+  from { width: 0; }
+  to { width: 21ch; }
 }
 
-.btn-group button {
-  background-color: var(--discovery-purple);
-  color: white;
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+/* Subheading */
+.slogan {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  color: #002f6c;
+}
+
+/* Description text */
+.description {
+  max-width: 600px;
+  font-size: 1.2rem;
+  color: #0b1d3a;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  padding: 0 1rem;
+}
+
+.fixed-buttons {
+  display: flex;
+  color: #002f6c;
+  justify-content: center;  
+  gap: 1rem;                
+  margin-top: 2rem;         
+}
+
+
+.fixed-buttons .cta-primary {
+  background: #ffff01;           /* Discovery Yellow */
+  color: #002f6c;               /* Discovery Deep Blue */
   border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  margin: 0.5rem;
-  border-radius: 4px;
+  padding: 1.2rem 3rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 50px;
   cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease;
 }
 
-button.secondary {
-  background-color: var(--discovery-silver);
-  color: black;
+/* Hover effects */
+.fixed-buttons .cta-primary:hover {
+  background: #ffb500;           /* Yellow hover */
+  transform: scale(1.05);
+}
+
+/* Responsive design for tablets */
+@media (max-width: 768px) {
+  .typewriter {
+    font-size: 4rem;             /* Smaller heading */
+  }
+  .searchbar-heading {
+    padding: 1rem 2.5rem;
+  }
+  .slogan {
+    font-size: 1.5rem;
+  }
+  .description {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+}
+
+/* Responsive design for phones */
+@media (max-width: 480px) {
+  .typewriter {
+    font-size: 2.5rem;           /* Fit smaller screens */
+  }
+  .searchbar-heading {
+    padding: 0.8rem 2rem;
+  }
+  .fixed-buttons {
+    flex-direction: column;      /* Stack vertically */
+    gap: 0.8rem;
+    bottom: 30px;
+  }
+  .fixed-buttons button {
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
 }

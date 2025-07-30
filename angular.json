@@ -18,11 +18,17 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
+            "stylePreprocessorOptions": {
+            "includePaths": [
+              "src"
+            ]
+            },
             "assets": [
               "src/assets",
               "src/favicon.ico"
             ],
             "styles": [
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ]
           },

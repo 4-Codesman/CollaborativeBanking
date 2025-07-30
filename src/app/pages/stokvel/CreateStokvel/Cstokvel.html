@@ -1,0 +1,80 @@
+<main class="cStokvel-container">
+  <header class="cStokvel-header">
+    <h1>Create Stokvel</h1>
+  </header>
+
+  <section class="form-card">
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Stokvel Name</mat-label>
+        <input matInput type="text" formControlName="title" required>
+      </mat-form-field>
+
+      <label>Type</label>
+      <div class="stokvel-type">
+        <label>
+          <input type="radio" formControlName="stokvelType" value="no-interest" required>
+          No Interest (Traditional)
+        </label>
+        <label>
+          <input type="radio" formControlName="stokvelType" value="interest" required>
+          Interest-Bearing
+        </label>
+      </div>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Payout Amount (R)</mat-label>
+        <input matInput type="number" step="any" formControlName="amount" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Payout Period</mat-label>
+        <select matNativeControl formControlName="payoutPeriod" required>
+          <option value="" disabled selected>Select a period</option>
+          <option value="weekly">Weekly</option>
+          <option value="biweekly">Biweekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="annually">Annually</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Start Date</mat-label>
+        <input matInput type="date" formControlName="startDate" [min]="todayString" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Add Members</mat-label>
+        <mat-chip-grid #chipGrid>
+          <mat-chip-row *ngFor="let member of selectedMembers" (removed)="removeMember(member)">
+            {{ member }}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input 
+            placeholder="Type email to add"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="chipGrid"
+            [formControl]="memberCtrl"
+            (matChipInputTokenEnd)="addMember($event)">
+        </mat-chip-grid>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectMember($event.option.value)">
+          <mat-option *ngFor="let email of filteredEmails | async" [value]="email">
+            {{ email }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <button 
+        type="submit" 
+        class="create-button" 
+        mat-raised-button 
+        color="primary"
+        [disabled]="createForm.invalid || selectedMembers.length === 0">
+        Create Stokvel
+      </button>
+    </form>
+  </section>
+</main>
