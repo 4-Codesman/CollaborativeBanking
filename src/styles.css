@@ -4,4 +4,108 @@
   --discovery-white: #ffffff;
   --discovery-black: #000000;
   --discovery-silver: #c0c0c0;
+  --background-color-gray: #D9D9D9;
+
+  /* Font variables  from settings page*/
+  --single-line-body-base-font-family: "Inter", Helvetica;
+  --single-line-body-base-font-weight: 400;
+  --single-line-body-base-font-size: 16px;
+  --single-line-body-base-letter-spacing: 0px;
+  --single-line-body-base-line-height: 100%;
+  --single-line-body-base-font-style: normal;
+  --size-space-200: 8px;
+  --size-radius-200: 8px;
+  --color-text-default-default: var(--color-primitives-gray-900);
+  --color-text-brand-on-brand-secondary: var(--color-primitives-brand-900);
+  --color-background-brand-tertiary: var(--color-primitives-brand-100);
+  --color-primitives-gray-900: rgba(30, 30, 30, 1);
+  --color-primitives-brand-900: rgba(30, 30, 30, 1);
+  --color-primitives-white-1000: rgba(255, 255, 255, 1);
+  --color-primitives-brand-100: rgba(245, 245, 245, 1);
+
+  --heading-font-family: "Inter", Helvetica;
+  --heading-font-weight: 600;
+  --heading-font-size: 24px;
+  --heading-letter-spacing: -0.48px;
+  --heading-line-height: 120.00000476837158%;
+  --heading-font-style: normal;
+  --body-base-font-family: "Inter", Helvetica;
+  --body-base-font-weight: 400;
+  --body-base-font-size: 16px;
+  --body-base-letter-spacing: 0px;
+  --body-base-line-height: 139.9999976158142%;
+  --body-base-font-style: normal;
+  --single-line-body-base-font-family: "Inter", Helvetica;
+  --single-line-body-base-font-weight: 400;
+  --single-line-body-base-font-size: 16px;
+  --single-line-body-base-letter-spacing: 0px;
+  --single-line-body-base-line-height: 100%;
+  --single-line-body-base-font-style: normal;
+  --size-space-600: 24px;
+  --size-radius-200: 8px;
+  --size-space-200: 8px;
+  --size-space-300: 12px;
+  --size-space-400: 16px;
+  --color-background-default-default: var(--color-primitives-white-1000);
+  --color-border-default-default: var(--color-primitives-gray-300);
+  --color-text-default-default: var(--color-primitives-gray-900);
+  --color-text-default-secondary: var(--color-primitives-gray-500);
+  --color-background-neutral-tertiary: var(--color-primitives-slate-200);
+  --color-border-neutral-secondary: var(--color-primitives-slate-600);
+  --color-primitives-white-1000: rgba(255, 255, 255, 1);
+  --color-primitives-gray-300: rgba(217, 217, 217, 1);
+  --color-primitives-gray-900: rgba(30, 30, 30, 1);
+  --color-primitives-gray-500: rgba(117, 117, 117, 1);
+  --color-primitives-gray-600: rgba(68, 68, 68, 1);
+  --color-primitives-white-500: rgba(255, 255, 255, 0.7);
+  --color-primitives-slate-200: rgba(227, 227, 227, 1);
+  --color-primitives-slate-600: rgba(118, 118, 118, 1);
+  --color-primitives-slate-900: rgba(48, 48, 48, 1);
+  --color-primitives-slate-500: rgba(148, 148, 148, 1);
+}
+
+[data-color-mode="SDS-light"] {
+  --color-background-default-default: var(--color-primitives-white-1000);
+  --color-border-default-default: var(--color-primitives-gray-300);
+  --color-text-default-default: var(--color-primitives-gray-900);
+  --color-text-default-secondary: var(--color-primitives-gray-500);
+  --color-background-neutral-tertiary: var(--color-primitives-slate-200);
+  --color-border-neutral-secondary: var(--color-primitives-slate-600);
+}
+
+[data-color-mode="SDS-dark"] {
+  --color-background-default-default: var(--color-primitives-gray-900);
+  --color-border-default-default: var(--color-primitives-gray-600);
+  --color-text-default-default: var(--color-primitives-white-1000);
+  --color-text-default-secondary: var(--color-primitives-white-500);
+  --color-background-neutral-tertiary: var(--color-primitives-slate-900);
+  --color-border-neutral-secondary: var(--color-primitives-slate-500);
+}
+
+[data-color-mode="brand-b-light"] {
+  --color-background-default-default: var(--color-primitives-white-1000);
+  --color-border-default-default: var(--color-primitives-gray-300);
+  --color-text-default-default: var(--color-primitives-gray-900);
+  --color-text-default-secondary: var(--color-primitives-gray-500);
+  --color-background-neutral-tertiary: var(--color-primitives-slate-200);
+  --color-border-neutral-secondary: var(--color-primitives-slate-600);
+}
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
 }
