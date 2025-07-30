@@ -5,5 +5,4 @@ import { Settings } from './pages/settings/settings.component';
 export const routes: Routes = [
   { path: '', component: LandingComponent }, // this is the homepage
   { path: 'settings', component: Settings }
-
 ];
