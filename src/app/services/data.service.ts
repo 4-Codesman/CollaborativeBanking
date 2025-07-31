@@ -25,4 +25,29 @@ export class DataService {
   getUserIdsByEmail(emails: string[]): Observable<{ email: string, userID: string }[]> {
     return this.http.post<{ email: string, userID: string }[]>(`${this.apiUrl}/users/getUserIdsByEmail`, { emails });
   }
+
+  addFriend(code: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/api/friends/add`, { code });
+  }
+
+  getFriendRequests(uid: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/api/friends/requests/${uid}`);
+  }
+
+  respondToRequest(uid: string, friendId: string, accepted: boolean): Observable<any> {
+    return this.http.post(`${this.apiUrl}/api/friends/respond`, { uid, friendId, accepted });
+  }
+
+  getFriendsList(uid: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/api/friends/list/${uid}`);
+  }
+
+  removeFriend(uid: string, friendId: string): Observable<any> {
+      return this.http.post(`${this.apiUrl}/api/friends/remove`, { uid, friendId });
+    }
+
+  getPairFriend(uid: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/api/friends/PairFriend/${uid}`);
+  }
+
 }

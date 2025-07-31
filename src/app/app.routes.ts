@@ -6,6 +6,7 @@ import { StokvelComponent } from './pages/stokvel/stokvel.component';
 import { CStokvelComponent } from './pages/stokvel/CreateStokvel/Cstokvel.component';
 import { VStokvelComponent } from './pages/stokvel/ViewStokvel/Vstokvel.component';
 import { JStokvelComponent } from './pages/stokvel/JoinStokvel/Jstokvel.component';
+import { FriendsComponent } from './pages/friends/friends.component';
 import { AccountSettings } from './account-settings/account-settings';
 import { SavingsLeagueComponent } from './pages/savings-league/savings-league.component';
 import { CreateSavingsLeagueComponent } from './pages/savings-league/create-savings-league/create-savings-league.component';
@@ -26,4 +27,6 @@ export const routes: Routes = [
   {path: 'stokvel/join', component: JStokvelComponent},
   {path: 'account-settings', component: AccountSettings },
   { path: 'savings/create', component: CreateSavingsLeagueComponent }
+  { path: 'friends', component: FriendsComponent },
+  {path: 'account-settings', component: AccountSettings }
 ];
