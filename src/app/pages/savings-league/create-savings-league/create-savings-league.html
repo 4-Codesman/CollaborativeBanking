@@ -1,0 +1,42 @@
+<main class="cStokvel-container">
+  <header class="cStokvel-header">
+    <h1>Create Savings League</h1>
+  </header>
+
+  <section class="form-card">
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>League Name</mat-label>
+        <input matInput type="text" formControlName="name" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Max Members</mat-label>
+        <input matInput type="number" formControlName="maxMembers" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Your Savings Goal (min R200)</mat-label>
+        <input matInput type="number" formControlName="goal" min="200" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Start Date</mat-label>
+        <input matInput type="date" formControlName="startDate" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Start Time</mat-label>
+        <input matInput type="time" formControlName="startTime" required>
+      </mat-form-field>
+
+      <button 
+        type="submit" 
+        mat-raised-button 
+        color="primary" 
+        [disabled]="createForm.invalid">
+        Create League
+      </button>
+    </form>
+  </section>
+</main>
