@@ -27,31 +27,31 @@ export class DataService {
   }
 
   addFriend(code: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/friends/add`, { code });
+    return this.http.post(`${this.apiUrl}/friends/add`, { code });
   }
 
   getFriendRequests(uid: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/api/friends/requests/${uid}`);
+    return this.http.get(`${this.apiUrl}/friends/requests/${uid}`);
   }
 
   respondToRequest(uid: string, friendId: string, accepted: boolean): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/friends/respond`, { uid, friendId, accepted });
+    return this.http.post(`${this.apiUrl}/friends/respond`, { uid, friendId, accepted });
   }
 
   getFriendsList(uid: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/api/friends/list/${uid}`);
+    return this.http.get(`${this.apiUrl}/friends/list/${uid}`);
   }
 
   removeFriend(uid: string, friendId: string): Observable<any> {
-      return this.http.post(`${this.apiUrl}/api/friends/remove`, { uid, friendId });
+      return this.http.post(`${this.apiUrl}/friends/remove`, { uid, friendId });
     }
 
   getPairFriend(uid: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/api/friends/PairFriend/${uid}`);
+    return this.http.get(`${this.apiUrl}/friends/PairFriend/${uid}`);
   }
 
   getUserByUID(uid: string): Observable<any> {
-  return this.http.get(`${this.apiUrl}/api/users/${uid}`);
+  return this.http.get(`${this.apiUrl}/users/${uid}`);
 }
 
 
