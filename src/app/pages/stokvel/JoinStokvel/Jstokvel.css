@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-.detailsButton{
+Button{
   background: #ffff01;
   color: #0b1d3a;
   border: none;
@@ -35,7 +35,7 @@
   width: 100%;
 }
 
-.detailsButton:hover {
+Button:hover {
   background: #ffb500;
   transform: scale(1.02);
 }
@@ -85,4 +85,29 @@
   font-size: 1.2rem;
   color: #555;
   margin-top: 1.5rem;
+}
+
+.stokvel-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: linear-gradient(to bottom right, #f1f5fa, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
 }

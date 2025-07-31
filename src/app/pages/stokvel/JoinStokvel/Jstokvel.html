@@ -14,7 +14,7 @@
         <div class="stokvel-cards">
           <div class="stokvel-card" *ngFor="let stokvel of stokvelsJ">
             <h2>{{ stokvel.name }}</h2>
-            <button class="detailsButton">View Details</button>
+            <button (click)="viewDetails(stokvel.id)">View Details</button>
           </div>
         </div>
       </div>
@@ -26,4 +26,19 @@
     </div>
   </section>
 
+  <div *ngIf="showPopup" class="stokvel-popup">
+    <div class="popup-content">
+      <h2>{{indStokvel?.name}}</h2>
+        <p><strong>Type:</strong> {{indStokvel?.type }}</p>
+        <p><strong>Amount:</strong> {{indStokvel?.amount | currency:'ZAR' }}</p>
+        <p><strong>Payout Period:</strong> {{ indStokvel?.period }}</p>
+        <p><strong>Start Date:</strong> {{ indStokvel?.date | date }}</p>
+
+      <div class="popup-buttons">
+        <button (click)="acceptStokvel()">Accept</button>
+        <button (click)="rejectStokvel()">Reject</button>
+        <button (click)="closePopup()">Close</button>
+      </div>
+    </div>
+  </div>
 </main>
