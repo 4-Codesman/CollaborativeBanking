@@ -16,6 +16,47 @@ export class FriendsComponent {
   private auth: Auth = inject(Auth);
   private dataService: DataService = inject(DataService);
 
+  //mock data and click handlers
+  /*
+  friendRequests = [
+    { name: 'Lebo M' },
+    { name: 'Thabo K' }
+  ];
+
+  friendsList = [
+    { name: 'Zayd Bhai' },
+    { name: 'Bradley C' },
+    { name: 'Cameron D' }
+  ];
+
+  pairFriend = { name: 'Zayd Bhai' };
+  pairProgress = 72;
+
+  leaderboard = [
+    { name: 'Sipho M', personalGoalProgress: 95 },
+    { name: 'Zayd Bhai', personalGoalProgress: 80 },
+    { name: 'Cameron D', personalGoalProgress: 60 }
+  ];
+
+  friendCode: string = '';
+
+  addFriendByCode() {
+    console.log('Adding friend by code:', this.friendCode);
+  }
+
+  acceptRequest(req: any) {
+    console.log('Accepting request from:', req.name);
+  }
+
+  rejectRequest(req: any) {
+    console.log('Rejecting request from:', req.name);
+  }
+
+  removeFriend(friend: any) {
+    console.log('Removing friend:', friend.name);
+  } */
+
+
   //variables:
   friendRequests: any[] = [];
   friendsList: any[] = [];
@@ -24,6 +65,7 @@ export class FriendsComponent {
 
   pairFriend: any = null;
   pairProgress: number = 0;
+
 
   //fetching initial data
   ngOnInit(): void {
@@ -45,9 +87,9 @@ export class FriendsComponent {
         next: (friends) => {
           this.friendsList = friends;
 
-          // Optional: generate leaderboard based on scores
+          // Optional: generate leaderboard based on personalGoalProgress
           this.leaderboard = [...friends]
-            .sort((a, b) => (b.score || 0) - (a.score || 0));
+            .sort((a, b) => (b.personalGoalProgress || 0) - (a.personalGoalProgress || 0));
         },
         error: (err) => {
           console.error('Failed to fetch friends list:', err);
