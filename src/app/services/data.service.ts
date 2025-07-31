@@ -50,4 +50,9 @@ export class DataService {
     return this.http.get(`${this.apiUrl}/api/friends/PairFriend/${uid}`);
   }
 
+  getUserByUID(uid: string): Observable<any> {
+  return this.http.get(`${this.apiUrl}/api/users/${uid}`);
+}
+
+
 }
