@@ -8,16 +8,27 @@
     <div class="div-wrapper"><div class="text-strong">Transaction History</div></div>
   </div>
 
-  <div class="notification">
+  <!-- Show a loading message while transactions are being fetched -->
+  <div *ngIf="loading" class="loading-message">Loading transactions...</div>
+
+  <!-- Display transactions dynamically -->
+  <div *ngFor="let transaction of transactions" class="notification">
     <div class="title">
-      <img class="image" src="assets/images/Info.png"/>
+      <img class="image" src="assets/images/Info.png" />
       <div class="stack">
         <div class="content">
-          <div class="text-wrapper">Transaction</div>
-          <div class="div">Summary of meta details</div>
+          <div class="text-wrapper">{{ transaction.tag }} Transaction</div>
+          <div class="div">Amount: R{{ transaction.Amount }} | Date: {{ transaction.date}}</div>
         </div>
-        <button class="button"><div class="text-wrapper-2">View</div></button>
+        <button class="button">
+          <div class="text-wrapper-2">View</div>
+        </button>
       </div>
     </div>
+  </div>
+
+  <!-- Show a message if no transactions are available -->
+  <div *ngIf="!loading && transactions.length === 0" class="no-transactions-message">
+    No transactions available.
   </div>
 </div>
