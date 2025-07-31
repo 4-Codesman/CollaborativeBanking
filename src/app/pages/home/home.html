@@ -13,8 +13,30 @@
       <p><strong>Saving Goal:</strong> {{ userData?.personalGoal | currency:'ZAR' }}</p>
     </div>
 
-    <!--add stokvel summary and friends summary later-->>
+    <div class="card stokvel-card">
+      <a routerLink="/stokvel" style="text-decoration: none;">
+        <h2>Stokvel Summary</h2>
+      </a>
+      <ul>
+        <li><strong>League:</strong> Bronze</li>
+        <li><strong>Progress to Goal:</strong> 72%</li>
+        <li><strong>Next Payment:</strong> 2 Aug 2025</li>
+        <li><strong>Next Payout:</strong> 30 Sept 2025</li>
+      </ul>
+    </div>
 
+    <div class="card savings-card">
+      <a routerLink="/savings-league" style="text-decoration: none;">
+        <h2>Savings League Summary</h2>
+      </a>
+      <ul>
+        <li><strong>Amount Saved:</strong> R8,750.00</li>
+        <li><strong>Progress to Goal:</strong> 58%</li>
+        <li><strong>League Position:</strong> 3rd</li>
+      </ul>
+    </div>
+  </section>
+  
   <section class="action-buttons">
     <button routerLink="friends">Friends</button>
     <button routerLink="stokvel">Stokvel</button>
