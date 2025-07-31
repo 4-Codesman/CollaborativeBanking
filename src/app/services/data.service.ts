@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  //private apiUrl = 'https://4codesmanwebappbe-drbresg4h5cpcjdm.canadacentral-01.azurewebsites.net'; 
-  private apiUrl = 'http://localhost:3000'; // Local development URL
+  private apiUrl = 'https://4codesmanwebappbe-drbresg4h5cpcjdm.canadacentral-01.azurewebsites.net'; 
+  //private apiUrl = 'http://localhost:3000'; // Local development URL
 
   constructor(private http: HttpClient) {}
 
