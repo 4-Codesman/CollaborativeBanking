@@ -21,4 +21,8 @@ export class DataService {
   createStokvel(stokvelData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/stokvels/create`, stokvelData);
   }
+
+  getUserIdsByEmail(emails: string[]): Observable<{ email: string, userID: string }[]> {
+    return this.http.post<{ email: string, userID: string }[]>(`${this.apiUrl}/users/getUserIdsByEmail`, { emails });
+  }
 }
