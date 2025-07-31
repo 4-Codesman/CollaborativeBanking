@@ -26,7 +26,7 @@ export const routes: Routes = [
   {path: 'stokvel/view', component: VStokvelComponent},
   {path: 'stokvel/join', component: JStokvelComponent},
   {path: 'account-settings', component: AccountSettings },
-  { path: 'savings/create', component: CreateSavingsLeagueComponent }
+  { path: 'savings/create', component: CreateSavingsLeagueComponent },
   { path: 'friends', component: FriendsComponent },
   {path: 'account-settings', component: AccountSettings }
 ];
