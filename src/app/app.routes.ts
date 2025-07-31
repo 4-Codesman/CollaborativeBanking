@@ -11,31 +11,20 @@ import { AccountSettings } from './pages/account-settings/account-settings';
 import { TransactionHistory } from '@pages/transaction-history/transaction-history';
 
 import { FriendsComponent } from './pages/friends/friends.component';
-import { AccountSettings } from './account-settings/account-settings';
 import { SavingsLeagueComponent } from './pages/savings-league/savings-league.component';
 import { CreateSavingsLeagueComponent } from './pages/savings-league/create-savings-league/create-savings-league.component';
 
-
-
-
-
-
-
 export const routes: Routes = [
-  { path: '', component: LandingComponent }, // this is the homepage
+  { path: '', component: LandingComponent },
   { path: 'settings', component: Settings },
   { path: 'home', component: HomeComponent },
   { path: 'stokvel', component: StokvelComponent },
-  {path: 'savings-league',component: SavingsLeagueComponent},
-  {path: 'stokvel/create', component: CStokvelComponent},
-  {path: 'stokvel/view', component: VStokvelComponent},
-  {path: 'stokvel/join', component: JStokvelComponent},
-  {path: 'account-settings', component: AccountSettings },
-
-  { path: 'transaction-history', component: TransactionHistory }
-
+  { path: 'savings-league', component: SavingsLeagueComponent },
+  { path: 'stokvel/create', component: CStokvelComponent },
+  { path: 'stokvel/view', component: VStokvelComponent },
+  { path: 'stokvel/join', component: JStokvelComponent },
+  { path: 'account-settings', component: AccountSettings },
+  { path: 'transaction-history', component: TransactionHistory },
   { path: 'savings/create', component: CreateSavingsLeagueComponent },
-  { path: 'friends', component: FriendsComponent },
-  {path: 'account-settings', component: AccountSettings }
-
+  { path: 'friends', component: FriendsComponent }
 ];
