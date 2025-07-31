@@ -26,6 +26,12 @@ export class DataService {
     return this.http.post<{ email: string, userID: string }[]>(`${this.apiUrl}/users/getUserIdsByEmail`, { emails });
   }
 
+ 
+  getTransactionsByUserId(userId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/transactions/${userId}`);
+  }
+
+
   addFriend(code: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/friends/add`, { code });
   }
@@ -53,6 +59,7 @@ export class DataService {
   getUserByUID(uid: string): Observable<any> {
   return this.http.get(`${this.apiUrl}/users/${uid}`);
 }
+
 
 
 }

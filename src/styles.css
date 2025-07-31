@@ -62,6 +62,28 @@
   --color-primitives-slate-600: rgba(118, 118, 118, 1);
   --color-primitives-slate-900: rgba(48, 48, 48, 1);
   --color-primitives-slate-500: rgba(148, 148, 148, 1);
+
+  /*Variables for transaction page*/
+  --body-small-font-family: "Inter", Helvetica;
+  --body-small-font-weight: 400;
+  --body-font-size: 14px;
+  --body-small-letter-spacing: 0px;
+  --body-small-line-height: 140%;
+  --body-small-font-style: normal;
+  --body-strong-font-family: "Inter", Helvetica;
+  --body-strong-font-weight: 600;
+  --body-strong-font-size: 16px;
+  --body-strong-letter-spacing: -0.32px;
+  --body-strong-line-height: 140%;
+  --body-strong-font-style: normal;
+  --size-padding-lg: 16px;
+  --size-padding-sm: 8px;
+  --size-padding-xs: 4px;
+  --color-tect-default-secomdary: var(--color-primitives-gray-500);
+  --color-text-default-default: var(--color-primitives-gray-900);
+  --color-primitive-gray-500: rgba(117, 117, 117, 1);
+  --color-primitive-gray-900: rgba(30, 30, 30, 1);
+  
 }
 
 [data-color-mode="SDS-light"] {

@@ -28,8 +28,13 @@ export class LandingComponent {
         };
 
         localStorage.setItem('Email', user.uEmail || '');
+
+        localStorage.setItem('userID', user.uID || '');
+
+
         localStorage.setItem('ID', user.uID || '');
         
+
         this.dataService.postUserLogin(user).subscribe({
           next: (response) => {
             console.log(response);

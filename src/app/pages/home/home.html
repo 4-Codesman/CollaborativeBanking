@@ -38,11 +38,17 @@
   </section>
   
   <section class="action-buttons">
+
+    <button (click)="navigateTo('savings-league')">View Savings League</button>
+    <button (click)="navigateTo('transaction-history')">Transaction History</button>
+    <button (click)="navigateTo('rewards-store')">Rewards Store</button>
+
     <button routerLink="/friends">Friends</button>
     <button routerLink="/stokvel">Stokvel</button>
     <button disabled>Savings League</button>
     <button disabled>Chatbot</button>
     <button routerLink="/account-settings">Settings</button>
+
 
   </section>
 </section>

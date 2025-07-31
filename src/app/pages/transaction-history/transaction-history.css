@@ -1,0 +1,241 @@
+.box {
+    width:fit-content;
+    height:fit-content;
+}
+
+.box .rectangle {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #b6eef3;
+}
+
+.menu-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    width: 256px;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: var(--size-padding-sm) var(--size-padding-lg) var(--size-padding-xs) var(--size-padding-lg);
+}
+
+.menu-header .div-wrapper {
+    display: inline-flex;
+    align-items: flex-start;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.menu-header .text-small {
+    position: relative;
+    width:fit-content;
+    margin-top: -1.00px;
+    font-family: var(--body-small-font-family);
+    font-weight: var(--body-small-font-weight);
+    color: var(--color-text-default-secondary);
+    font-size: var(--body-font-size);
+    letter-spacing: var(--body-small-letter-spacing);
+    line-height: var(--body-small-line-height);
+    white-space: nowrap;
+    font-style: var(--body-small-font-style);
+}
+
+.menu-header .text-strong {
+    position: relative;
+    width:fit-content;
+    margin-top: -1.00px;
+    font-family: var(--body-strong-font-family);
+    font-weight: var(--body-strong-font-weight);
+    color: var(--color-text-default-default);
+    font-size: var(--body-strong-font-size);
+    letter-spacing: var(--body-strong-letter-spacing);
+    line-height: var(--body-strong-line-height);
+    white-space: nowrap;
+    font-style: var(--body-strong-font-style);
+}
+
+.notification {
+    display: flex;
+    width: 300px;
+    align-items: center;
+    gap: var(--size-space-300);
+    padding: var(--size-padding-400);
+    position: relative;
+    background-color: var(--background-default-default);
+    border-radius: var(--size-radius-200);
+    border: 1px solid;
+    border-color: var(--color-border-default-secondary);
+}
+
+.notification .title {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--size-spave-300);
+    position: relative;
+    flex: 1;
+    flex-grow: 1;
+}
+
+.notification .image {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.notification .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--size-space-100);
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.notification .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--size-space-100);
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.notification .text-wrapper{
+    gap: var(--size-space-100);
+    position: relative;
+    align-self: stretch;
+    margin-top: -1.00px;
+    font-family: var(--body-strong-font-family);
+    font-weight: var(--body-strong-font-weight);
+    color: var(--color-text-default-default);
+    font-size: var(--body-strong-font-size);
+    letter-spacing: var(--body-strong-letter-spacing);
+    line-height: var(--body-strong-line-height);
+    font-style: var(--body-strong-font-style);
+}
+
+.notification .div {
+    position: relative;
+    align-self: stretch;
+    font-family: var(--body-base-font-family);
+    font-weight: var(--body-base-font-weight);
+    color: var(--color-text-default-secondary);
+    font-size: var(--body-base-font-size);
+    letter-spacing: var(--body-base-letter-spacing);
+    line-height: var(--body-base-line-height);
+    font-style: var(--body-base-font-style);
+}
+
+.notification .button {
+    all: unset;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-space-200);
+    padding: var(--size-padding-200);
+    position: relative;
+    flex: 0 0 auto;
+    background-color: var(--color-background-brand-tertiary);
+    border-radius: var(--size-radius-200);
+    overflow: hidden;
+    border: 1px solid var(--color-border-default-secondary);
+    cursor: pointer; /* Add pointer cursor for better UX */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.notification .button:hover {
+    background-color: var(--discovery-purple); /* Change background color */
+    color: var(--discovery-white); /* Change text color */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+.notification .button:active {
+    background-color: var(--discovery-black); /* Change background color */
+    color: var(--discovery-white); /* Change text color */
+    transform: scale(0.95); /* Slightly shrink the button */
+}
+
+.notification .button:focus-visible {
+    outline: 2px solid var(--discovery-purple);
+    outline-offset: 2px;
+}
+
+.notification .text-wrapper-2 {
+    position: relative;
+    align-self: stretch;
+    margin-top: -1.00px;
+    font-family: var(--body-small-font-family);
+    font-weight: var(--body-small-font-weight);
+    color: var(--color-text-default-default);
+    font-size: var(--body-small-font-size);
+    letter-spacing: var(--body-small-letter-spacing);
+    line-height: var(--body-small-line-height);
+    font-style: var(--body-small-font-style);
+}
+
+.notification .icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--size-padding-200);
+    position: relative;
+    top: -8px;
+    left: 240px;
+    border-radius: var(--size-radius-200);
+    overflow: hidden;
+}
+
+.transaction-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 16px; /* adjust spacing */
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-header {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--color-background-default-default);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.notification {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--color-background-default-default);
+  border-radius: var(--size-radius-200);
+  border: 1px solid var(--color-border-default-secondary);
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.loading-message {
+  text-align: center;
+  font-size: 16px;
+  color: var(--color-text-default-secondary);
+  margin: 20px 0;
+}
+
+.no-transactions-message {
+  text-align: center;
+  font-size: 16px;
+  color: var(--color-text-default-secondary);
+  margin: 20px 0;
+}

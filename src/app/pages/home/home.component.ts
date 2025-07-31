@@ -1,7 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { RouterLink } from '@angular/router';
+
+import { Router } from '@angular/router';
+
 import { CommonModule } from '@angular/common'; 
+
 
 
 @Component({
@@ -11,6 +15,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.html',
   styleUrls: ['./home.css'], 
 })
+
 
 export class HomeComponent implements OnInit {
   private dataService: DataService = inject(DataService);
@@ -35,4 +40,11 @@ export class HomeComponent implements OnInit {
       });
     }
   }
+
+  constructor(private router: Router) {}
+
+  navigateTo(route: string) {
+    this.router.navigate([`/${route}`]);
+  }
 }
+
