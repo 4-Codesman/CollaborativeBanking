@@ -1,21 +1,22 @@
 <section class="home-wrapper">
   <header class="welcome-banner">
-    <h1>Welcome to Collaborative Banking</h1>
+    <h1>Welcome back, {{ userData?.userName || 'Loading...' }} 👋</h1>
     <p>Your group savings, reimagined through Discovery</p>
   </header>
 
   <section class="info-cards">
     <div class="card account-card">
       <h2>Account Overview</h2>
-      <p><strong>Balance:</strong> R12,500.00</p>
-      <p><strong>Points:</strong> 860 pts</p>
-      <p><strong>Rewards:</strong> 3 vouchers available</p>
+      <p><strong>Balance:</strong> {{ userData?.accBalance | currency:'ZAR' }}</p>
+      <p><strong>Points:</strong> {{ userData?.accPoints || '...' }} pts</p>
+      <p><strong>Saving Progress:</strong> {{ userData?.personalGoalProgress || '...' }}%</p>
+      <p><strong>Saving Goal:</strong> {{ userData?.personalGoal | currency:'ZAR' }}</p>
     </div>
 
     <div class="card stokvel-card">
-    <a routerLink="/stokvel" style="text-decoration: none;">
-      <h2>Stokvel Summary</h2>
-    </a>
+      <a routerLink="/stokvel" style="text-decoration: none;">
+        <h2>Stokvel Summary</h2>
+      </a>
       <ul>
         <li><strong>League:</strong> Bronze</li>
         <li><strong>Progress to Goal:</strong> 72%</li>
@@ -23,11 +24,31 @@
         <li><strong>Next Payout:</strong> 30 Sept 2025</li>
       </ul>
     </div>
-  </section>
 
+    <div class="card savings-card">
+      <a routerLink="/savings-league" style="text-decoration: none;">
+        <h2>Savings League Summary</h2>
+      </a>
+      <ul>
+        <li><strong>Amount Saved:</strong> R8,750.00</li>
+        <li><strong>Progress to Goal:</strong> 58%</li>
+        <li><strong>League Position:</strong> 3rd</li>
+      </ul>
+    </div>
+  </section>
+  
   <section class="action-buttons">
+
     <button (click)="navigateTo('savings-league')">View Savings League</button>
     <button (click)="navigateTo('transaction-history')">Transaction History</button>
     <button (click)="navigateTo('rewards-store')">Rewards Store</button>
+
+    <button routerLink="/friends">Friends</button>
+    <button routerLink="/stokvel">Stokvel</button>
+    <button disabled>Savings League</button>
+    <button disabled>Chatbot</button>
+    <button routerLink="/account-settings">Settings</button>
+
+
   </section>
 </section>

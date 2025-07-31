@@ -1,0 +1,71 @@
+<div class="friends-container">
+  <header class="header">
+    <h1>Friends Page</h1>
+  </header>
+
+  <!-- Add a friend -->
+  <section class="friends-section">
+    <h3>Add a Friend</h3>
+    <input [(ngModel)]="friendCode" placeholder="Enter friend code" />
+    <button (click)="addFriendByCode()">Add</button>
+  </section>
+
+  <!-- Friend Requests -->
+  <section class="friends-section">
+    <h3>Friend Requests</h3>
+    <button (click)="showFriendRequests = !showFriendRequests">
+      {{ showFriendRequests ? 'Hide Requests' : 'Show Requests' }}
+    </button>
+
+    <ul *ngIf="showFriendRequests" class="request-list">
+      <li *ngFor="let request of friendRequests">
+        {{ request.name }}
+        <button (click)="acceptRequest(request)">Accept</button>
+        <button (click)="rejectRequest(request)">Reject</button>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Your Friends -->
+  <section class="friends-section">
+    <h3>Your Friends</h3>
+    <button (click)="showFriendList = !showFriendList">
+      {{ showFriendList ? 'Hide Friends' : 'Show Friends' }}
+    </button>
+
+    <div *ngIf="showFriendList" class="friends-list">
+      <div *ngFor="let friend of friendsList">
+        <span>{{ friend.name }}</span>
+        <button (click)="removeFriend(friend)">Remove</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Random Pair -->
+<section class="friends-section">
+  <h3>Random Pair</h3>
+  <div class="circular-progress-item">
+    <div class="circular-progress-container">
+      <svg class="progress-ring" viewBox="0 0 36 36">
+        <circle class="progress-ring__bg" cx="18" cy="18" r="15.9155"/>
+        <circle class="progress-ring__value" 
+                [attr.stroke-dasharray]="pairProgress + ', 100'" 
+                cx="18" cy="18" r="15.9155"/>
+      </svg>
+      <span class="progress-text">{{ pairProgress }}%</span>
+    </div>
+    <div class="friend-name">You & {{ pairFriend?.name}} are {{ pairProgress }}% from goal</div>
+  </div>
+</section>
+
+  <!-- Leaderboard -->
+  <section class="friends-section">
+    <h3>Friend Leaderboard</h3>
+    <ol class="leaderboard-list">
+      <li *ngFor="let friend of leaderboard">
+        {{ friend.name }} - {{ friend.personalGoalProgress || 0}}%
+        <progress [value]="friend.personalGoalProgress || 0" max="100"></progress>
+      </li>
+    </ol>
+  </section>
+</div>
