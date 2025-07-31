@@ -1,39 +1,88 @@
-.vStokvel-container {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom right, #f1f5fa, #ffffff);
-    min-height: 100vh;
-    padding: 2rem;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.jStokvel-container {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #f1f5fa, #ffffff);
+  min-height: 100vh;
+  padding: 2rem;
+  color: #333;
+}
 
-  .vStokvel-content{
-    font-size: 1rem;
-    color: #002f6c;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-  
-  .create-button {
-    background: #ffff01;
-    color: #0b1d3a;
-    display: block;
-    margin: 1.5rem auto 0;
-    border: none;
-    padding: 0.8rem 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    margin-top: 1rem;
-    align-self: center;
-  }
-  
-  .create-button:hover {
-    background: #ffb500;
-    transform: scale(1.05);
-  }
-  
+.jStokvel-header h1 {
+  text-align: center;
+  color: #002f6c;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.jStokvel-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detailsButton{
+  background: #ffff01;
+  color: #0b1d3a;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 2rem;
+  display: block;
+  width: 100%;
+}
+
+.detailsButton:hover {
+  background: #ffb500;
+  transform: scale(1.02);
+}
+
+.jStokvel-list h3 {
+  font-size: 1.5rem;
+  color: #0070c0;
+  margin-bottom: 1rem;
+}
+
+.stokvel-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  max-width: 900px;
+}
+
+.stokvel-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  flex: 1 1 250px;
+  max-width: 280px;
+  transition: transform 0.2s ease-in-out;
+  text-align: center;
+}
+
+.stokvel-card:hover {
+  transform: scale(1.02);
+}
+
+.stokvel-card h2 {
+  color: #0070c0;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stokvel-card p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.loading-text, .empty-text {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 1.5rem;
+}

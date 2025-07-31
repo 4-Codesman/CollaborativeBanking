@@ -6,7 +6,11 @@
     "baseUrl": "./",
     "paths": {
       "@env": ["src/environments/environment.ts"],
-      "@environments/*": ["src/environments/*"]
+      "@environments/*": ["src/environments/*"],
+      "@serv": ["src/app/services/data.service.ts"],
+      "@services/*": ["src/app/services/*"],
+      "@pages/*": ["src/app/pages/*"]
+
     },
     "strict": true,
     "noImplicitOverride": true,
