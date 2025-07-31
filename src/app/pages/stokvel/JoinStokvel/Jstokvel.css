@@ -20,6 +20,26 @@
   align-items: center;
 }
 
+.detailsButton{
+  background: #ffff01;
+  color: #0b1d3a;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 2rem;
+  display: block;
+  width: 100%;
+}
+
+.detailsButton:hover {
+  background: #ffb500;
+  transform: scale(1.02);
+}
+
 .jStokvel-list h3 {
   font-size: 1.5rem;
   color: #0070c0;

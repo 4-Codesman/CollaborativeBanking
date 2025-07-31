@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 
 export class VStokvelComponent implements OnInit {
-  stokvelIds: string[]= [];
+  stokvelsV: { id: string; name: string }[] = [];
   loading = true;
 
   constructor(private http: HttpClient) {}
@@ -21,19 +21,19 @@ export class VStokvelComponent implements OnInit {
   ngOnInit() {
     const email = localStorage.getItem('Email');
     if (email) {
-      this.http.post<{ stokvels: string[] }>(`${environment.apiUrl}/view/check-user`, { email }).subscribe({
+      this.http.post<{ stokvels: { id: string; name: string }[] }>(`${environment.apiUrl}/view/check-user`, { email }).subscribe({
         next: (response) => {
-          this.stokvelIds = response.stokvels;
+          this.stokvelsV = response.stokvels;
           this.loading = false;
         },
         error: (err) => {
           console.error('Error fetching user stokvels:', err);
-          this.stokvelIds = [];
+          this.stokvelsV = [];
           this.loading = false;
         }
       });
     } else {
-      this.stokvelIds = [];
+      this.stokvelsV= [];
       this.loading = false;
     }
   }
