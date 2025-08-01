@@ -1,34 +1,45 @@
 <main class="cStokvel-container">
   <header class="cStokvel-header">
-    <h1>Create Savings League</h1>
+    <h1>Create a New Savings League</h1>
+    <p class="subtitle">
+      Set your league name, description, start date, member count and your own private savings goal.
+    </p>
   </header>
 
   <section class="form-card">
     <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>League Name</mat-label>
         <input matInput type="text" formControlName="name" required>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Max Members</mat-label>
-        <input matInput type="number" formControlName="maxMembers" required>
+        <mat-label>Description</mat-label>
+        <textarea matInput rows="3" formControlName="description" placeholder="e.g., A fun challenge to save towards our summer trip."></textarea>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Your Savings Goal (min R200)</mat-label>
+        <mat-label>Max Members</mat-label>
+        <input matInput type="number" formControlName="maxMembers" min="2" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Your Personal Goal (min R200)</mat-label>
         <input matInput type="number" formControlName="goal" min="200" required>
       </mat-form-field>
 
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Start Date</mat-label>
-        <input matInput type="date" formControlName="startDate" required>
-      </mat-form-field>
+      <div class="date-time-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Start Date</mat-label>
+          <input matInput type="date" formControlName="startDate" required>
+        </mat-form-field>
 
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Start Time</mat-label>
-        <input matInput type="time" formControlName="startTime" required>
-      </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Start Time</mat-label>
+          <input matInput type="time" formControlName="startTime" required>
+        </mat-form-field>
+      </div>
 
       <button 
         type="submit" 
@@ -40,3 +51,4 @@
     </form>
   </section>
 </main>
+

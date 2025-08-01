@@ -1,0 +1,9 @@
+.date-time-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.date-time-group mat-form-field {
+  flex: 1;
+  min-width: 150px;
+}

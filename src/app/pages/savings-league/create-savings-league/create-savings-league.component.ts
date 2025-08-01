@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-savings-league',
@@ -13,41 +14,18 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
-  template: `
-    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill">
-        <mat-label>League Name</mat-label>
-        <input matInput formControlName="name" required>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Max Members</mat-label>
-        <input matInput type="number" formControlName="maxMembers" required>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Goal Amount</mat-label>
-        <input matInput type="number" formControlName="goal" required>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Start Date</mat-label>
-        <input matInput type="date" formControlName="startDate" required>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Start Time</mat-label>
-        <input matInput type="time" formControlName="startTime" required>
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" [disabled]="createForm.invalid">Create League</button>
-    </form>
-  `,
-  // styleUrls: ['./create-savings-league.component.css']
+  templateUrl: './create-savings-league.html',
 })
 export class CreateSavingsLeagueComponent {
   createForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.createForm = this.fb.group({
       name: ['', Validators.required],
+      description: [''],
       maxMembers: [2, [Validators.required, Validators.min(2)]],
       goal: [200, [Validators.required, Validators.min(200)]],
       startDate: ['', Validators.required],
@@ -58,19 +36,28 @@ export class CreateSavingsLeagueComponent {
   onSubmit() {
     if (this.createForm.invalid) return;
 
-    const { name, maxMembers, goal, startDate, startTime } = this.createForm.value;
-    const startDateTime = `${startDate}T${startTime}`;
+    const { name, description, maxMembers, goal, startDate, startTime } = this.createForm.value;
+
+    const fullStart = new Date(`${startDate}T${startTime}`);
+    const fullDue = new Date(fullStart);
+    fullDue.setMonth(fullDue.getMonth() + 1); // Set due date 1 month later
 
     const leagueData = {
       name,
+      description,
       maxMembers,
       creatorGoal: goal,
-      startDateTime
+      status: 'open',
+      startDate: fullStart,
+      dueDate: fullDue,
+      creatorUid: 'mock-uid' // replace with actual UID from auth service
     };
 
-    console.log('Submit savings league:', leagueData);
+    console.log('Creating savings league:', leagueData);
 
-    // TODO: Replace this with actual POST request to backend
-    // this.http.post('/api/savings-league/create', leagueData).subscribe(...)
+    this.http.post('http://localhost:5000/api/saving-leagues/create', leagueData).subscribe({
+      next: (res) => console.log('✅ Created:', res),
+      error: (err) => console.error('❌ Error:', err)
+    });
   }
 }
