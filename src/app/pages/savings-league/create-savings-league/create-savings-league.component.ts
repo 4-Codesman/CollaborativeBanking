@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-create-savings-league',
@@ -55,7 +56,7 @@ export class CreateSavingsLeagueComponent {
 
     console.log('Creating savings league:', leagueData);
 
-    this.http.post('http://localhost:5000/api/saving-leagues/create', leagueData).subscribe({
+    this.http.post(`${environment.apiUrl}/saving-leagues/create`, leagueData).subscribe({
       next: (res) => console.log('✅ Created:', res),
       error: (err) => console.error('❌ Error:', err)
     });
