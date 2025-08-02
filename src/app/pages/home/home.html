@@ -1,54 +1,93 @@
 <section class="home-wrapper">
+  <!-- Top navigation bar with logo and buttons -->
+  <header class="top-header">
+    <div class="logo-container">
+      <img src="assets/images/discovery-logo.png" alt="Discovery Bank Logo" class="logo">
+    </div>
+    <div class="quick-actions">
+      <button class="nav-button" (click)="navigateTo('savings-league')">View Savings League</button>
+      <button class="nav-button" (click)="navigateTo('transaction-history')">Transaction History</button>
+      <button class="nav-button" (click)="navigateTo('rewards-store')">Rewards Store</button>
+      <button class="nav-button" routerLink="/friends">Friends</button>
+      <button class="nav-button" routerLink="/stokvel">Stokvel</button>
+      <button class="nav-button" disabled>Savings League</button>
+      <button class="nav-button" disabled>Chatbot</button>
+      <button class="nav-button" routerLink="/account-settings">Settings</button>
+    </div>
+  </header>
+
+  <!-- Welcome banner -->
   <header class="welcome-banner">
     <h1>Welcome back, {{ userData?.userName || 'Loading...' }} 👋</h1>
     <p>Your group savings, reimagined through Discovery</p>
   </header>
 
+  <!-- Interactive Cards Section -->
   <section class="info-cards">
-    <div class="card account-card">
-      <h2>Account Overview</h2>
-      <p><strong>Balance:</strong> {{ userData?.accBalance | currency:'ZAR' }}</p>
-      <p><strong>Points:</strong> {{ userData?.accPoints || '...' }} pts</p>
-      <p><strong>Saving Progress:</strong> {{ userData?.personalGoalProgress || '...' }}%</p>
-      <p><strong>Saving Goal:</strong> {{ userData?.personalGoal | currency:'ZAR' }}</p>
+    <!-- Account Overview Card -->
+    <div class="card" 
+         [@expandCard]="cardStates.account"
+         (click)="toggleCard('account')">
+      <div class="card-header">
+        <h2>Account Overview</h2>
+        <span class="toggle-icon">{{ isCardExpanded('account') ? '−' : '+' }}</span>
+      </div>
+      
+      <div class="expanded-content" *ngIf="isCardExpanded('account')">
+        <div class="content-text">
+          <p><strong>Balance:</strong> {{ userData?.accBalance | currency:'ZAR' }}</p>
+          <p><strong>Points:</strong> {{ userData?.accPoints || '...' }} pts</p>
+          <p><strong>Saving Progress:</strong> {{ userData?.personalGoalProgress || '...' }}%</p>
+          <p><strong>Saving Goal:</strong> {{ userData?.personalGoal | currency:'ZAR' }}</p>
+        </div>
+        <div class="content-image">
+          <img src="assets/images/Discov1.png" alt="im1">
+        </div>
+      </div>
     </div>
 
-    <div class="card stokvel-card">
-      <a routerLink="/stokvel" style="text-decoration: none;">
+    <!-- Stokvel Summary Card -->
+    <div class="card" 
+         [@expandCard]="cardStates.stokvel"
+         (click)="toggleCard('stokvel')">
+      <div class="card-header">
         <h2>Stokvel Summary</h2>
-      </a>
-      <ul>
-        <li><strong>League:</strong> Bronze</li>
-        <li><strong>Progress to Goal:</strong> 72%</li>
-        <li><strong>Next Payment:</strong> 2 Aug 2025</li>
-        <li><strong>Next Payout:</strong> 30 Sept 2025</li>
-      </ul>
+        <span class="toggle-icon">{{ isCardExpanded('stokvel') ? '−' : '+' }}</span>
+      </div>
+      
+      <div class="expanded-content" *ngIf="isCardExpanded('stokvel')">
+        <div class="content-text">
+          <p><strong>League:</strong> Bronze</p>
+          <p><strong>Progress to Goal:</strong> 72%</p>
+          <p><strong>Next Payment:</strong> 2 Aug 2025</p>
+          <p><strong>Next Payout:</strong> 30 Sept 2025</p>
+        </div>
+        <div class="content-image">
+          <img src="assets/images/Discover2.png" alt="im2">
+        </div>
+      </div>
     </div>
 
-    <div class="card savings-card">
-      <a routerLink="/savings-league" style="text-decoration: none;">
+    <!-- Savings League Card -->
+    <div class="card" 
+         [@expandCard]="cardStates.savings"
+         (click)="toggleCard('savings')">
+      <div class="card-header">
         <h2>Savings League Summary</h2>
-      </a>
-      <ul>
-        <li><strong>Amount Saved:</strong> R8,750.00</li>
-        <li><strong>Progress to Goal:</strong> 58%</li>
-        <li><strong>League Position:</strong> 3rd</li>
-      </ul>
+        <span class="toggle-icon">{{ isCardExpanded('savings') ? '−' : '+' }}</span>
+      </div>
+      
+      <div class="expanded-content" *ngIf="isCardExpanded('savings')">
+        <div class="content-text">
+          <p><strong>Amount Saved:</strong> R8,750.00</p>
+          <p><strong>Progress to Goal:</strong> 58%</p>
+          <p><strong>League Position:</strong> 3rd</p>
+          <p><strong>Next Rank:</strong> 2,500 pts to Silver</p>
+        </div>
+        <div class="content-image">
+          <img src="assets/images/Discover3.png" alt="im3">
+        </div>
+      </div>
     </div>
-  </section>
-  
-  <section class="action-buttons">
-
-    <button (click)="navigateTo('savings-league')">View Savings League</button>
-    <button (click)="navigateTo('transaction-history')">Transaction History</button>
-    <button (click)="navigateTo('rewards-store')">Rewards Store</button>
-
-    <button routerLink="/friends">Friends</button>
-    <button routerLink="/stokvel">Stokvel</button>
-    <button disabled>Savings League</button>
-    <button disabled>Chatbot</button>
-    <button routerLink="/account-settings">Settings</button>
-
-
   </section>
 </section>

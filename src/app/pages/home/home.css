@@ -1,18 +1,86 @@
+/* ===== Modern White Theme - Cohesive Colors ===== */
+/* With all original functionality preserved */
+/* ============================================== */
+
+/* Base Styles */
 .home-wrapper {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #f1f5fa, #ffffff);
+  background: white; /* Changed to pure white */
   min-height: 100vh;
   padding: 2rem;
-  color: #333;
+  color: #222; /* Darker text for better contrast */
 }
 
+/* Header Styles */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e8e8e8; /* Lighter border */
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo-container {
+  min-width: 180px;
+  height: 50px;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0.9); /* Slightly muted logo */
+}
+
+/* Navigation Buttons */
+.nav-button {
+  background: none;
+  color: #222;
+  border: none;
+  border-radius: 4px; /* Slightly rounded */
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-button:hover:not(:disabled) {
+  color: #005bb5; /* Slightly darker blue */
+  background: rgba(0, 91, 181, 0.05); /* Subtle hover background */
+}
+
+.nav-button:hover:not(:disabled)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Thinner underline */
+  background-color: #005bb5;
+}
+
+.nav-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  color: #999;
+}
+
+/* Welcome Banner */
 .welcome-banner {
   text-align: center;
   margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f9f9f9; /* Very light gray background */
+  border-radius: 8px;
 }
 
 .welcome-banner h1 {
-  color: #002f6c;
+  color: #005bb5; /* Matching blue */
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
@@ -22,59 +90,118 @@
   color: #555;
 }
 
+/* Card Styles */
 .info-cards {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 2rem;
 }
 
 .card {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  padding: 1.5rem;
-  transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: scale(1.01);
-}
-
-.card h2 {
-  color: #0070c0;
-  margin-bottom: 1rem;
-}
-
-.card p,
-.card ul {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-}
-
-.card ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.card li {
-  padding: 0.3rem 0;
-}
-
-.action-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-
-button {
-  background-color: #0070c0;
-  color: white;
-  border: none;
+  background: white;
   border-radius: 8px;
-  padding: 0.75rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08); /* Softer shadow */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border: 1px solid #eee; /* Added subtle border */
+}
+
+.card-header {
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9; /* Matching welcome banner */
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.card-header h2 {
+  color: #005bb5; /* Matching blue */
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.toggle-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #005bb5; /* Matching blue */
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Expanded Content */
+.expanded-content {
+  display: flex;
+  padding: 1.5rem;
+  gap: 2rem;
+  align-items: center;
+  background: #fcfcfc; /* Slightly off-white */
+}
+
+.content-text {
+  flex: 1;
+}
+
+.content-text p {
+  margin: 0.75rem 0;
   font-size: 1rem;
-  cursor: not-allowed;
-  opacity: 0.7;
+  line-height: 1.5;
+  color: #333; /* Darker text */
+}
+
+.content-text strong {
+  color: #005bb5; /* Matching blue */
+}
+
+.content-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+}
+
+.content-image img {
+  max-height: 180px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Softer shadow */
+}
+
+/* Hover Effects */
+.card:hover {
+  box-shadow: 0 5px 16px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .expanded-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .content-image {
+    width: 100%;
+  }
+  
+  .top-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .quick-actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 1rem;
+  }
+  
+  .welcome-banner h1 {
+    font-size: 2rem;
+  }
 }

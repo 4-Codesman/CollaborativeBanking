@@ -1,34 +1,49 @@
-<div class="box">
-  <div class="rectangle"></div>
-</div>
+<div class="main-container">
+  <!-- Left Sidebar -->
+  <div class="sidebar">
+    <h4>Account Summary</h4>
+    <label for="balance">Account Balance</label>
+    <input type="text" id="balance" [value]="'R' + accBalance" readonly />
 
-<div class="transaction-page">
-  <div class="menu-header">
-    <div class="div-wrapper"><div class="text-small">Transactions</div></div>
-    <div class="div-wrapper"><div class="text-strong">Transaction History</div></div>
+    <label for="funds">Available Funds</label>
+    <input type="text" id="funds" [value]="'R' + Available" readonly />
+
+    <label for="league">Savings League</label>
+    <input type="text" id="league" [value]="'R' + Saving_L" readonly />
   </div>
 
-  <!-- Show a loading message while transactions are being fetched -->
-  <div *ngIf="loading" class="loading-message">Loading transactions...</div>
+  <!-- Right Panel (Transaction History) -->
+  <div class="content-area">
+    <div class="box">
+      <div class="rectangle"></div>
+    </div>
 
-  <!-- Display transactions dynamically -->
-  <div *ngFor="let transaction of transactions" class="notification">
-    <div class="title">
-      <img class="image" src="assets/images/Info.png" />
-      <div class="stack">
-        <div class="content">
-          <div class="text-wrapper">{{ transaction.tag }} Transaction</div>
-          <div class="div">Amount: R{{ transaction.Amount }} | Date: {{ transaction.date}}</div>
+    <div class="transaction-page">
+      <div class="menu-header">
+        <div class="div-wrapper"><div class="text-small">Transactions</div></div>
+        <div class="div-wrapper"><div class="text-strong">Transaction History</div></div>
+      </div>
+
+      <div *ngIf="loading" class="loading-message">Loading transactions...</div>
+
+      <div *ngFor="let transaction of transactions" class="notification">
+        <div class="title">
+          <img class="image" src="assets/images/Info.png" />
+          <div class="stack">
+            <div class="content">
+              <div class="text-wrapper">{{ transaction.tag }} Transaction</div>
+              <div class="div">Amount: R{{ transaction.Amount }} | Date: {{ transaction.date | date:'medium' }}</div>
+            </div>
+            <button class="button">
+              <div class="text-wrapper-2">View</div>
+            </button>
+          </div>
         </div>
-        <button class="button">
-          <div class="text-wrapper-2">View</div>
-        </button>
+      </div>
+
+      <div *ngIf="!loading && transactions.length === 0" class="no-transactions-message">
+        No transactions available.
       </div>
     </div>
-  </div>
-
-  <!-- Show a message if no transactions are available -->
-  <div *ngIf="!loading && transactions.length === 0" class="no-transactions-message">
-    No transactions available.
   </div>
 </div>

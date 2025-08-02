@@ -11,6 +11,9 @@ import { DataService } from '../../services/data.service';
 })
 export class TransactionHistory {
   transactions: any[] = [];
+  accBalance: number = 0; // Initialize account balance
+  Saving_L: number = 0; // Initialize saving balance
+  Available : number = this.accBalance - this.Saving_L; // Initialize available balance
   loading = true;
 
   constructor(private dataService: DataService) {}
@@ -33,6 +36,20 @@ export class TransactionHistory {
           this.loading = false;
         }
       });
+
+       // fetch user account information and store it here to be displayed on account summary
+      this.dataService.getUserByUID(uID).subscribe({
+        next: (user) => {
+          this.accBalance = user.accBalance || 0; // Set account balance
+          this.Saving_L = user.SavingsLeague_Balance || 0; // Set saving balance
+          this.Available = this.accBalance - this.Saving_L; // Calculate available balance
+          console.log('User account information:', user.accountBalance, user.savingBalance);
+        },
+        error: (err) => {
+          console.error('Error fetching user information:', err);
+        }
+      });
+
     } else {
       this.transactions = [];
       this.loading = false;
