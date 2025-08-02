@@ -1,44 +1,35 @@
+<section class="join-stokvel-wrapper">
+  <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="discovery-logo" />
+  <h1>Your Stokvel Invitations</h1>
 
-<main class="jStokvel-container">
-  <header class="jStokvel-header">
-    <h1>Your Stokvel Invitations</h1>
-  </header>
+  <div *ngIf="loading" class="status-text">Loading your invitations...</div>
 
-  <section class="jStokvel-content">
-    <div class="jStokvel-list">
-      <div *ngIf="loading" class="loading-text">
-        Loading your invitations...
-      </div>
-
-      <div *ngIf="!loading && stokvelsJ.length > 0">
-        <div class="stokvel-cards">
-          <div class="stokvel-card" *ngFor="let stokvel of stokvelsJ">
-            <h2>{{ stokvel.name }}</h2>
-            <button (click)="viewDetails(stokvel.id)">View Details</button>
-          </div>
-        </div>
-      </div>
-
-      <div *ngIf="!loading && stokvelsJ.length === 0" class="empty-text">
-        No Invitations.<br />
-        Create a stokvel community.
-      </div>
+  <div *ngIf="!loading && stokvelsJ.length > 0" class="stokvel-invite-grid">
+    <div class="stokvel-card" *ngFor="let stokvel of stokvelsJ">
+      <h2>{{ stokvel.name }}</h2>
+      <button class="create-button" (click)="viewDetails(stokvel.id)">View Details</button>
     </div>
-  </section>
+  </div>
 
+  <div *ngIf="!loading && stokvelsJ.length === 0" class="status-text">
+    No Invitations.<br />
+    Create a stokvel community.
+  </div>
+
+  <!-- Pop-up Details -->
   <div *ngIf="showPopup" class="stokvel-popup">
     <div class="popup-content">
       <h2>{{indStokvel?.name}}</h2>
-        <p><strong>Type:</strong> {{indStokvel?.type }}</p>
-        <p><strong>Amount:</strong> {{indStokvel?.amount | currency:'ZAR' }}</p>
-        <p><strong>Payout Period:</strong> {{ indStokvel?.period }}</p>
-        <p><strong>Start Date:</strong> {{ indStokvel?.date | date }}</p>
+      <p><strong>Type:</strong> {{indStokvel?.type }}</p>
+      <p><strong>Amount:</strong> {{indStokvel?.amount | currency:'ZAR' }}</p>
+      <p><strong>Payout Period:</strong> {{ indStokvel?.period }}</p>
+      <p><strong>Start Date:</strong> {{ indStokvel?.date | date }}</p>
 
-      <div class="popup-buttons">
-        <button (click)="acceptStokvel()">Accept</button>
-        <button (click)="rejectStokvel()">Reject</button>
-        <button (click)="closePopup()">Close</button>
+      <div class="button-row">
+        <button class="create-button" (click)="acceptStokvel()">Accept</button>
+        <button class="create-button" (click)="rejectStokvel()">Reject</button>
+        <button class="create-button" (click)="closePopup()">Close</button>
       </div>
     </div>
   </div>
-</main>
+</section>

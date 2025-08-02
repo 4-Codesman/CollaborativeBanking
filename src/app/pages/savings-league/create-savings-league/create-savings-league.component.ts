@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
     HttpClientModule
   ],
   templateUrl: './create-savings-league.html',
+  styleUrls: ['./create-savings-league.css']
 })
 export class CreateSavingsLeagueComponent {
   createForm: FormGroup;

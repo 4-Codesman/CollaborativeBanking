@@ -1,69 +1,96 @@
-/* styles.css or component-specific CSS */
-.title {
-  text-align: center;
-  font-size: 2rem;
-  margin: 1rem 0;
-  color: #2c3e50;
-}
-
-.goal-form {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.goal-form label {
-  margin-right: 0.5rem;
-  font-weight: 600;
+.savings-league-wrapper {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  font-family: "Segoe UI", Roboto, sans-serif;
   color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
 }
 
-.goal-form input[type="number"] {
-  padding: 0.4rem 0.6rem;
+.discovery-logo {
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+.savings-league-wrapper h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #003057;
+}
+
+.league-summary {
+  background-color: #f3f6f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: left;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.04);
+}
+
+.league-summary label {
+  font-size: 1rem;
+  color: #003057;
+}
+
+.league-summary input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.5rem;
   border-radius: 6px;
   border: 1px solid #ccc;
-  width: 200px;
+  font-size: 1rem;
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.2rem;
-  padding: 1rem;
+.leagues-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 .league-card {
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #f3f6f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.04);
 }
 
-.league-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+.league-card h2 {
+  color: #003057;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
 }
 
-.card-header {
-  background-color: #3498db;
+.league-card p {
+  font-size: 1.05rem;
+  margin: 0.4rem 0;
+}
+
+.status-text {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 2rem;
+}
+
+/* Buttons */
+.create-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #003057;
   color: #fff;
-  padding: 0.8rem 1rem;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.card-header h3 {
-  margin: 0;
-  font-size: 1.25rem;
+.create-button:hover {
+  background-color: #005b9f;
 }
 
-.card-body {
-  padding: 1rem;
-  font-size: 0.95rem;
-  color: #444;
-}
-
-.card-body p {
-  margin-bottom: 0.5rem;
-}

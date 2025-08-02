@@ -58,6 +58,7 @@ export class FriendsComponent {
 
 
   //variables:
+  currentUID: string = ''; 
   friendRequests: any[] = [];
   friendsList: any[] = [];
   leaderboard: any[] = [];
@@ -72,6 +73,7 @@ export class FriendsComponent {
     const uid = this.auth.currentUser?.uid;
 
     if (uid) {
+      this.currentUID = uid; // Store current user ID
       // Fetch friend requests
       this.dataService.getFriendRequests(uid).subscribe({
         next: (requests) => {
@@ -116,19 +118,26 @@ export class FriendsComponent {
   showFriendList = false;
   showFriendRequests = false;
   showTeamMembersList = false;
+  showAddFriend = false;
 
 
   //click handlers
   addFriendByCode() { //add friend by code
     const uid = this.auth.currentUser?.uid;
-    if (!this.friendCode || !uid) return;
+    if (!this.friendCode || !uid) {
+      alert('Please enter a valid friend code');
+      return;
+    }
 
-    this.dataService.addFriend(this.friendCode).subscribe({
+    this.dataService.addFriend(this.friendCode, uid).subscribe({
       next: (res) => {
         console.log('✅ Friend request sent:', res);
+        alert('Friend request sent!');
+        this.friendCode = ''; // ✅ Clear input box
       },
       error: (err) => {
         console.error('❌ Failed to send friend request:', err);
+        alert('Failed to send friend request. Make sure the code is correct or try again later.');
       }
     });
   }

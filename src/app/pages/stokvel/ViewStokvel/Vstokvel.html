@@ -1,40 +1,42 @@
-<main class="vStokvel-container">
-  <header class="vStokvel-header">
-    <h1 *ngIf="!stokvelDetails">Your Stokvel Groups</h1>
-    <h1 *ngIf="stokvelDetails">{{ stokvelDetails.name }}</h1>
-  </header>
+<section class="view-stokvel-wrapper">
+  <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="discovery-logo" />
 
-  <section class="vStokvel-content">
+  <h1 *ngIf="!stokvelDetails">Your Stokvel Groups</h1>
+  <h1 *ngIf="stokvelDetails">{{ stokvelDetails.name }}</h1>
 
-    <div *ngIf="!stokvelDetails">
-      <div class="vStokvel-list">
-        <div *ngIf="loading" class="loading-text">
-          Loading...
-        </div>
+  <div *ngIf="loading" class="status-text">Loading...</div>
 
-        <div *ngIf="!loading && stokvelsV.length > 0">
-          <div class="stokvel-cards">
-            <a [routerLink]="['/stokvel/view', stokvel.id]" class="stokvel-card" *ngFor="let stokvel of stokvelsV">
-              <h2>{{stokvel.name}}</h2>
-            </a>
-          </div>
-        </div>
-
-        <div *ngIf="!loading && stokvelsV.length === 0" class="empty-text">
-          No stokvels yet.<br />
-          Create or Join a stokvel community.
-          </div>
-      </div>
+  <!-- List View -->
+  <div *ngIf="!loading && !stokvelDetails">
+    <div *ngIf="stokvelsV.length > 0" class="stokvel-grid">
+      <a [routerLink]="['/stokvel/view', stokvel.id]" class="stokvel-card" *ngFor="let stokvel of stokvelsV">
+        <h2>{{ stokvel.name }}</h2>
+      </a>
     </div>
 
-    <div *ngIf="stokvelDetails && !loading" class="stokvel-details">
-      <p><strong>Amount:</strong> R{{ stokvelDetails.amount }}</p>
-      <p><strong>Period:</strong> {{ stokvelDetails.period }}</p>
-      <p><strong>Start Date:</strong> {{ stokvelDetails.date | date }}</p>
-      <p><strong>Next Payment Date:</strong> {{ stokvelDetails.date | date }}</p>
-      <p><strong>Your Payout Date:</strong> {{stokvelDetails.date}}</p>
-      <button routerLink="/stokvel/view">← View All</button>
+    <div *ngIf="stokvelsV.length === 0" class="status-text">
+      No stokvels yet.<br />
+      Create or Join a stokvel community.
     </div>
+  </div>
 
-  </section>
-</main>
+  <!-- Details View -->
+  <div *ngIf="stokvelDetails && !loading" class="stokvel-summary">
+    <p><strong>Amount:</strong> R{{ stokvelDetails.amount }}</p>
+    <p><strong>Period:</strong> {{ stokvelDetails.period }}</p>
+    <p><strong>Start Date:</strong> {{ stokvelDetails.startDate | date:'mediumDate' }}</p>
+    <p><strong>Next Round Payout:</strong> {{ stokvelDetails.nextPayout | date:'mediumDate' }}</p>
+    <p><strong>Your Withdrawal Position:</strong> {{ stokvelDetails.yourPosition }}</p>
+
+    <h3>Members</h3>
+    <ul>
+      <li *ngFor="let member of stokvelDetails.members">
+        {{ member.name }}
+      </li>
+    </ul>
+
+    <div class="button-row">
+      <button routerLink="/stokvel/view" class="create-button">← View All</button>
+    </div>
+  </div>
+</section>

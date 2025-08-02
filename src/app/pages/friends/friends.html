@@ -1,65 +1,73 @@
-<div class="friends-container">
-  <header class="header">
-    <h1>Friends Page</h1>
-  </header>
+<section class="friends-wrapper">
+  <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="discovery-logo" />
+  <h1>Your Friends</h1>
 
-  <!-- Add a friend -->
-  <section class="friends-section">
-    <h3>Add a Friend</h3>
-    <input [(ngModel)]="friendCode" placeholder="Enter friend code" />
-    <button (click)="addFriendByCode()">Add</button>
-  </section>
+  <div class="friend-summary">
+    <p><strong>Your Referral Code:</strong> {{ currentUID }}</p>
+    <p>Share this with friends so they can add you to their network.</p>
+  </div>
 
-  <!-- Friend Requests -->
-  <section class="friends-section">
-    <h3>Friend Requests</h3>
-    <button (click)="showFriendRequests = !showFriendRequests">
-      {{ showFriendRequests ? 'Hide Requests' : 'Show Requests' }}
+  <div class="friends-actions">
+    <button (click)="showAddFriend = !showAddFriend" class="action-button">
+      {{ showAddFriend ? 'Cancel' : 'Add a Friend' }}
     </button>
+    <button (click)="showFriendRequests = !showFriendRequests" class="action-button">
+      {{ showFriendRequests ? 'Hide Friend Requests' : 'Show Friend Requests' }}
+    </button>
+    <button (click)="showFriendList = !showFriendList" class="action-button">
+      {{ showFriendList ? 'Hide Friends' : 'Show Friends' }}
+    </button>
+  </div>
 
-    <ul *ngIf="showFriendRequests" class="request-list">
+  <!-- Add a Friend Field (toggles on click) -->
+<div *ngIf="showAddFriend" class="friend-section">
+  <h3>Add a Friend</h3>
+  <div class="add-friend-row">
+    <input [(ngModel)]="friendCode" placeholder="Enter friend code" />
+    <button (click)="addFriendByCode()" class="create-button">Add</button>
+  </div>
+</div>
+
+  <!-- show Friend requests (toggles on click) -->
+  <div *ngIf="showFriendRequests" class="friend-section">
+    <h3>Friend Requests</h3>
+    <ul class="request-list">
       <li *ngFor="let request of friendRequests">
         {{ request.name }}
         <button (click)="acceptRequest(request)">Accept</button>
         <button (click)="rejectRequest(request)">Reject</button>
       </li>
     </ul>
-  </section>
+  </div>
 
-  <!-- Your Friends -->
-  <section class="friends-section">
+  <!-- Add a Friend list (toggles on click) -->
+  <div *ngIf="showFriendList" class="friend-section">
     <h3>Your Friends</h3>
-    <button (click)="showFriendList = !showFriendList">
-      {{ showFriendList ? 'Hide Friends' : 'Show Friends' }}
-    </button>
-
-    <div *ngIf="showFriendList" class="friends-list">
+    <div class="friends-list">
       <div *ngFor="let friend of friendsList">
         <span>{{ friend.name }}</span>
         <button (click)="removeFriend(friend)">Remove</button>
       </div>
     </div>
-  </section>
-
-  <!-- Random Pair -->
-<section class="friends-section">
-  <h3>Random Pair</h3>
-  <div class="circular-progress-item">
-    <div class="circular-progress-container">
-      <svg class="progress-ring" viewBox="0 0 36 36">
-        <circle class="progress-ring__bg" cx="18" cy="18" r="15.9155"/>
-        <circle class="progress-ring__value" 
-                [attr.stroke-dasharray]="pairProgress + ', 100'" 
-                cx="18" cy="18" r="15.9155"/>
-      </svg>
-      <span class="progress-text">{{ pairProgress }}%</span>
-    </div>
-    <div class="friend-name">You & {{ pairFriend?.name}} are {{ pairProgress }}% from goal</div>
   </div>
-</section>
 
-  <!-- Leaderboard -->
-  <section class="friends-section">
+  <div class="friend-section">
+    <h3>Random Pair</h3>
+    <div class="circular-progress-item">
+      <div class="circular-progress-container">
+        <svg class="progress-ring" viewBox="0 0 36 36">
+          <circle class="progress-ring__bg" cx="18" cy="18" r="15.9155"/>
+          <circle class="progress-ring__value" 
+                  [attr.stroke-dasharray]="pairProgress + ', 100'" 
+                  cx="18" cy="18" r="15.9155"/>
+        </svg>
+        <span class="progress-text">{{ pairProgress }}%</span>
+      </div>
+      <div class="friend-name">You & {{ pairFriend?.name}} are {{ pairProgress }}% from goal</div>
+    </div>
+  </div>
+
+  <div class="friend-section">
     <h3>Friend Leaderboard</h3>
     <ol class="leaderboard-list">
       <li *ngFor="let friend of leaderboard">
@@ -67,5 +75,5 @@
         <progress [value]="friend.personalGoalProgress || 0" max="100"></progress>
       </li>
     </ol>
-  </section>
-</div>
+  </div>
+</section>

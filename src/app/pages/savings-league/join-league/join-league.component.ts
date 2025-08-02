@@ -9,7 +9,8 @@ import { environment } from 'src/environments/environment';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule, HttpClientModule],
   templateUrl: './join-league.html',
-  styleUrls: ['./join-league.css']
+  styleUrls: ['./join-league.css'],
+  
 })
 export class JoinLeagueComponent implements OnInit {
   joinForm: FormGroup;
@@ -48,7 +49,7 @@ export class JoinLeagueComponent implements OnInit {
     }
 
     const { goal, leagueId } = this.joinForm.value;
-    this.http.post(`${environment.apiUrl}/saving-leagues/join/${leagueId}`, { uid, goal })
+    this.http.post(`${environment.apiUrl}/saving-leagues/${leagueId}/join`, { uid, goal })
       .subscribe({
         next: (res: any) => {
           this.responseMessage = res.message || 'Successfully joined the league!';
