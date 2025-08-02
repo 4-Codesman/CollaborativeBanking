@@ -25,12 +25,10 @@ export class DataService {
   getUserIdsByEmail(emails: string[]): Observable<{ email: string, userID: string }[]> {
     return this.http.post<{ email: string, userID: string }[]>(`${this.apiUrl}/users/getUserIdsByEmail`, { emails });
   }
-
  
   getTransactionsByUserId(userId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/transactions/${userId}`);
   }
-
 
   addFriend(code: string, senderUID: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/friends/add`, { code, senderUID });

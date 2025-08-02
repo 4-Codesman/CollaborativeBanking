@@ -1,49 +1,31 @@
-<div class="main-container">
-  <!-- Left Sidebar -->
-  <div class="sidebar">
-    <h4>Account Summary</h4>
-    <label for="balance">Account Balance</label>
-    <input type="text" id="balance" [value]="'R' + accBalance" readonly />
+<section class="transaction-wrapper">
+  <!-- Optional: Add Discovery logo -->
+  <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="discovery-logo" />
 
-    <label for="funds">Available Funds</label>
-    <input type="text" id="funds" [value]="'R' + Available" readonly />
+  <h1>Your Transactions</h1>
 
-    <label for="league">Savings League</label>
-    <input type="text" id="league" [value]="'R' + Saving_L" readonly />
+  <!-- Account Summary Card -->
+  <div class="account-summary">
+    <p><strong>Account Balance:</strong> R{{ accBalance }}</p>
+    <p><strong>Available Funds:</strong> R{{ Available }}</p>
+    <p><strong>Savings League:</strong> R{{ Saving_L }}</p>
   </div>
 
-  <!-- Right Panel (Transaction History) -->
-  <div class="content-area">
-    <div class="box">
-      <div class="rectangle"></div>
-    </div>
+  <div *ngIf="loading" class="loading-message">Loading transactions...</div>
 
-    <div class="transaction-page">
-      <div class="menu-header">
-        <div class="div-wrapper"><div class="text-small">Transactions</div></div>
-        <div class="div-wrapper"><div class="text-strong">Transaction History</div></div>
-      </div>
-
-      <div *ngIf="loading" class="loading-message">Loading transactions...</div>
-
-      <div *ngFor="let transaction of transactions" class="notification">
-        <div class="title">
-          <img class="image" src="assets/images/Info.png" />
-          <div class="stack">
-            <div class="content">
-              <div class="text-wrapper">{{ transaction.tag }} Transaction</div>
-              <div class="div">Amount: R{{ transaction.Amount }} | Date: {{ transaction.date | date:'medium' }}</div>
-            </div>
-            <button class="button">
-              <div class="text-wrapper-2">View</div>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div *ngIf="!loading && transactions.length === 0" class="no-transactions-message">
-        No transactions available.
+  <!-- Transaction Cards -->
+  <div *ngFor="let transaction of transactions" class="transaction-card">
+    <div class="transaction-title">
+      <img class="icon" src="assets/images/Info.png" />
+      <div class="transaction-text">
+        <p class="tag"><strong>{{ transaction.tag }} Transaction</strong></p>
+        <p class="meta">Amount: R{{ transaction.Amount }} | Date: {{ transaction.date | date:'medium' }}</p>
       </div>
     </div>
+    <button class="view-button">View</button>
   </div>
-</div>
+
+  <div *ngIf="!loading && transactions.length === 0" class="no-transactions-message">
+    No transactions available.
+  </div>
+</section>
