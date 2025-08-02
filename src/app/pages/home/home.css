@@ -1,20 +1,24 @@
+/* ===== Modern White Theme - Cohesive Colors ===== */
+/* With all original functionality preserved */
+/* ============================================== */
+
 /* Base Styles */
 .home-wrapper {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #f1f5fa, #ffffff);
+  background: white; /* Changed to pure white */
   min-height: 100vh;
   padding: 2rem;
-  color: #333;
+  color: #222; /* Darker text for better contrast */
 }
 
-/* Top Header Styles */
+/* Header Styles */
 .top-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e8e8e8; /* Lighter border */
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -28,22 +32,15 @@
   height: 100%;
   width: auto;
   object-fit: contain;
+  filter: brightness(0.9); /* Slightly muted logo */
 }
 
-.quick-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  flex-grow: 1;
-}
-
-/* Navigation Button Styles */
+/* Navigation Buttons */
 .nav-button {
   background: none;
-  color: #000;
+  color: #222;
   border: none;
-  border-radius: 0;
+  border-radius: 4px; /* Slightly rounded */
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
   cursor: pointer;
@@ -53,7 +50,8 @@
 }
 
 .nav-button:hover:not(:disabled) {
-  color: #0070c0;
+  color: #005bb5; /* Slightly darker blue */
+  background: rgba(0, 91, 181, 0.05); /* Subtle hover background */
 }
 
 .nav-button:hover:not(:disabled)::after {
@@ -62,13 +60,13 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  background-color: #002f6c;
+  height: 2px; /* Thinner underline */
+  background-color: #005bb5;
 }
 
 .nav-button:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.4;
   color: #999;
 }
 
@@ -76,10 +74,13 @@
 .welcome-banner {
   text-align: center;
   margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f9f9f9; /* Very light gray background */
+  border-radius: 8px;
 }
 
 .welcome-banner h1 {
-  color: #002f6c;
+  color: #005bb5; /* Matching blue */
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
@@ -99,10 +100,11 @@
 .card {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08); /* Softer shadow */
   cursor: pointer;
   transition: all 0.3s ease;
   overflow: hidden;
+  border: 1px solid #eee; /* Added subtle border */
 }
 
 .card-header {
@@ -110,12 +112,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f8f9fa;
-  border-bottom: 1px solid #e0e0e0;
+  background: #f9f9f9; /* Matching welcome banner */
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .card-header h2 {
-  color: #002f6c;
+  color: #005bb5; /* Matching blue */
   margin: 0;
   font-size: 1.25rem;
 }
@@ -123,17 +125,18 @@
 .toggle-icon {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #0070c0;
+  color: #005bb5; /* Matching blue */
   min-width: 20px;
   text-align: center;
 }
 
-/* Expanded Content Styles */
+/* Expanded Content */
 .expanded-content {
   display: flex;
   padding: 1.5rem;
   gap: 2rem;
   align-items: center;
+  background: #fcfcfc; /* Slightly off-white */
 }
 
 .content-text {
@@ -144,10 +147,11 @@
   margin: 0.75rem 0;
   font-size: 1rem;
   line-height: 1.5;
+  color: #333; /* Darker text */
 }
 
 .content-text strong {
-  color: #002f6c;
+  color: #005bb5; /* Matching blue */
 }
 
 .content-image {
@@ -163,16 +167,16 @@
   max-width: 100%;
   object-fit: contain;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Softer shadow */
 }
 
 /* Hover Effects */
 .card:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 5px 16px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
 }
 
-/* Responsive Adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
   .expanded-content {
     flex-direction: column;
@@ -195,5 +199,9 @@
   
   .nav-button {
     padding: 0.5rem 1rem;
+  }
+  
+  .welcome-banner h1 {
+    font-size: 2rem;
   }
 }
