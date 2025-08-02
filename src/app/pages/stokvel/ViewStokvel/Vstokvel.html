@@ -30,9 +30,17 @@
     <div *ngIf="stokvelDetails && !loading" class="stokvel-details">
       <p><strong>Amount:</strong> R{{ stokvelDetails.amount }}</p>
       <p><strong>Period:</strong> {{ stokvelDetails.period }}</p>
-      <p><strong>Start Date:</strong> {{ stokvelDetails.date | date }}</p>
-      <p><strong>Next Payment Date:</strong> {{ stokvelDetails.date | date }}</p>
-      <p><strong>Your Payout Date:</strong> {{stokvelDetails.date}}</p>
+      <p><strong>Start Date:</strong> {{ stokvelDetails.startDate | date:'mediumDate' }}</p>
+      <p><strong>Next Round Payout:</strong> {{ stokvelDetails.nextPayout | date:'mediumDate' }}</p>
+      <p><strong>Your Withdrawal Position:</strong> {{ stokvelDetails.yourPosition }}</p>
+    
+      <h3>Members</h3>
+      <ul>
+        <li *ngFor="let member of stokvelDetails.members">
+          {{ member.position }}. {{ member.name }}
+        </li>
+      </ul>
+    
       <button routerLink="/stokvel/view">← View All</button>
     </div>
 
