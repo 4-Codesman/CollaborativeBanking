@@ -1,32 +1,21 @@
-<header>
-    <section class="header">
-      <a routerLink="/home" style="text-decoration: none;">
-        <h1 class="title">Collaborative Banking</h1>
-      </a>
-    </section>
-    <section class="header-right">
-      <button class="profileButton">User Profile</button>
-    </section>
-  </header>
-  
-  <main class="stokvels-container">
-    <article class="sidebar">
-      <header class="sidebar-head">
-        <h2>Stokvels</h2>
-      </header>
-  
-    <section class="action-buttons">
+<section class="stokvel-wrapper">
+  <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="discovery-logo" />
+  <h1>Your Stokvels</h1>
 
-      <a routerLink="/stokvel/create">
-        <button class="createStokvelButton">+ Create</button>
-      </a>
-      <a routerLink="/stokvel/join">
-        <button class="joinStokvelButton">Join Stokvel</button>
-      </a>
-      <a routerLink="/stokvel/view">
-        <button class="viewStokvelsButton">View Stokvels</button>
-      </a>
-    </section>
-    </article>
-  </main>
-  
+  <div class="stokvel-summary">
+    <p><strong>Active Stokvels:</strong> 3</p>
+    <p><strong>Amount Contributed:</strong> R12,200.00</p>
+    <p><strong>Next Payout Date:</strong> 1 Sep 2025</p>
+    <p><strong>Member Status:</strong> Up to date</p>
+  </div>
+
+  <p class="motivational-text">
+    Build wealth together. Stay disciplined and grow your stokvel savings as a team.
+  </p>
+
+  <div class="button-row">
+    <button routerLink="/stokvel/create" class="create-button">Create a Stokvel</button>
+    <button routerLink="/stokvel/join" class="create-button">Join a Stokvel</button>
+    <button routerLink="/stokvel/view" class="create-button">View All Stokvels</button>
+  </div>
+</section>
