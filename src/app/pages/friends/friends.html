@@ -8,7 +8,9 @@
   </div>
 
   <div class="friends-actions">
-    <button routerLink="/add-friend" class="action-button">Add a Friend</button>
+    <button (click)="showAddFriend = !showAddFriend" class="action-button">
+      {{ showAddFriend ? 'Cancel' : 'Add a Friend' }}
+    </button>
     <button (click)="showFriendRequests = !showFriendRequests" class="action-button">
       {{ showFriendRequests ? 'Hide Friend Requests' : 'Show Friend Requests' }}
     </button>
@@ -17,6 +19,16 @@
     </button>
   </div>
 
+  <!-- Add a Friend Field (toggles on click) -->
+<div *ngIf="showAddFriend" class="friend-section">
+  <h3>Add a Friend</h3>
+  <div class="add-friend-row">
+    <input [(ngModel)]="friendCode" placeholder="Enter friend code" />
+    <button (click)="addFriendByCode()" class="create-button">Add</button>
+  </div>
+</div>
+
+  <!-- show Friend requests (toggles on click) -->
   <div *ngIf="showFriendRequests" class="friend-section">
     <h3>Friend Requests</h3>
     <ul class="request-list">
@@ -28,6 +40,7 @@
     </ul>
   </div>
 
+  <!-- Add a Friend list (toggles on click) -->
   <div *ngIf="showFriendList" class="friend-section">
     <h3>Your Friends</h3>
     <div class="friends-list">
