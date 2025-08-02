@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    const storedUID = localStorage.getItem('ID');
+    const storedUID = localStorage.getItem('userID');
 
     if (storedUID) {
       this.userID = storedUID;
