@@ -1,103 +1,82 @@
-.savings-league-wrapper {
-  max-width: 700px;
+.join-league-wrapper {
+  max-width: 600px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: #ffffff;
   font-family: "Segoe UI", Roboto, sans-serif;
   color: #333;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
   text-align: center;
-}
-
-.discovery-logo {
-  height: 50px;
-  margin-bottom: 1rem;
-}
-
-.savings-league-wrapper h1 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
   color: #003057;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
-.league-summary {
-  background-color: #f3f6f9;
-  padding: 1.5rem;
-  border-radius: 8px;
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
   margin-bottom: 2rem;
-  text-align: left;
-  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.04);
 }
 
-.league-summary label {
-  font-size: 1rem;
-  color: #003057;
-}
-
-.league-summary input {
-  width: 100%;
-  padding: 0.6rem;
-  margin-top: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-.leagues-grid {
+.join-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 1rem;
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.league-card {
-  background-color: #f3f6f9;
-  padding: 1.5rem;
-  border-radius: 8px;
-  text-align: left;
-  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.04);
+.join-form label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
 }
 
-.league-card h2 {
-  color: #003057;
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-}
-
-.league-card p {
-  font-size: 1.05rem;
-  margin: 0.4rem 0;
-}
-
-.status-text {
+.join-form input,
+.join-form select {
+  padding: 0.6rem;
   font-size: 1rem;
-  color: #555;
-  margin-top: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-/* Buttons */
-.create-button {
-  display: inline-block;
-  margin: 1rem 0.5rem 0 0.5rem;
-  padding: 0.75rem 1.5rem;
+.join-form button {
+  margin-top: 1rem;
+  padding: 0.75rem;
   background-color: #003057;
   color: #fff;
-  font-weight: 600;
   border: none;
   border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
-.create-button:hover {
+.join-form button:hover {
   background-color: #005b9f;
 }
 
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+.response-msg {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #007600;
+}
+
+/* Mobile friendly */
+@media (max-width: 640px) {
+  .join-form {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
 }
