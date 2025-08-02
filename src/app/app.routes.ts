@@ -23,12 +23,12 @@ export const routes: Routes = [
   { path: 'savings-league', component: SavingsLeagueComponent },
   { path: 'stokvel/create', component: CStokvelComponent },
   { path: 'stokvel/view', component: VStokvelComponent },
+  { path: 'stokvel/view/:id', component: VStokvelComponent },
   { path: 'stokvel/join', component: JStokvelComponent },
   { path: 'account-settings', component: AccountSettings },
   { path: 'transaction-history', component: TransactionHistory },
   { path: 'savings/create', component: CreateSavingsLeagueComponent },
   { path: 'join-league', component: JoinLeagueComponent },
-
 
   // ✅ New route for viewing savings leagues
   {
