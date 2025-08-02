@@ -1,25 +1,23 @@
-<h2>Open Savings Leagues</h2>
+<!-- view-leagues.html (Upgraded UI using Cards) -->
+<h2 class="title">Your Savings Leagues</h2>
 
-<form>
-  <label for="goal">Your Savings Goal (Min R200):</label>
-  <input type="number" id="goal" [(ngModel)]="goal" name="goal" required />
-</form>
-
-<ul *ngIf="leagues.length > 0; else noLeagues">
-  <li *ngFor="let league of leagues">
-    <strong>{{ league.name }}</strong><br>
-    Description: {{ league.description }}<br>
-    Status: {{ league.status }}<br>
-    Max Members: {{ league.maxMembers }}<br>
-    Start Date: {{ league.startDate | date }}<br>
-    Due Date: {{ league.dueDate | date }}<br>
-    <button (click)="joinLeague(league._id)">Join League</button>
-    <hr>
-  </li>
-</ul>
+<div class="card-container" *ngIf="leagues.length > 0; else noLeagues">
+  <div class="league-card" *ngFor="let league of leagues" (click)="redirectToLeague(league._id)">
+    <div class="card-header">
+      <h3>{{ league.name }}</h3>
+    </div>
+    <div class="card-body">
+      <p><strong>Description:</strong> {{ league.description }}</p>
+      <p><strong>Status:</strong> {{ league.status }}</p>
+      <p><strong>Max Members:</strong> {{ league.maxMembers }}</p>
+      <p><strong>Start Date:</strong> {{ league.startDate | date }}</p>
+      <p><strong>Due Date:</strong> {{ league.dueDate | date }}</p>
+    </div>
+  </div>
+</div>
 
 <ng-template #noLeagues>
   <p>No savings leagues available to join.</p>
 </ng-template>
 
-<p *ngIf="responseMessage">{{ responseMessage }}</p>
+<p *ngIf="responseMessage" class="response-message">{{ responseMessage }}</p>

@@ -14,6 +14,8 @@ import { FriendsComponent } from './pages/friends/friends.component';
 import { SavingsLeagueComponent } from './pages/savings-league/savings-league.component';
 import { CreateSavingsLeagueComponent } from './pages/savings-league/create-savings-league/create-savings-league.component';
 import { JoinLeagueComponent } from './pages/savings-league/join-league/join-league.component';
+import { IndivSavingsLeague } from '@pages/savings-league/indiv-savings-league/indiv-savings-league';
+
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -29,6 +31,7 @@ export const routes: Routes = [
   { path: 'transaction-history', component: TransactionHistory },
   { path: 'savings/create', component: CreateSavingsLeagueComponent },
   { path: 'join-league', component: JoinLeagueComponent },
+  { path: 'savings/indiv-league', component: IndivSavingsLeague },
 
   // ✅ New route for viewing savings leagues
   {
