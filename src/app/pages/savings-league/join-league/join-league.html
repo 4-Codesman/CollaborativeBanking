@@ -1,40 +1,26 @@
-<section class="savings-league-wrapper">
-  <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="discovery-logo" />
+<section class="join-league-wrapper">
 
   <h1>Join a Savings League</h1>
 
-  <!-- Goal Form -->
-  <div class="league-summary">
-    <form>
-      <label for="goal"><strong>Your Savings Goal (Min R200):</strong></label>
-      <input type="number" id="goal" [(ngModel)]="goal" name="goal" required />
-    </form>
-  </div>
+  <p class="subtitle">
+    Select a league and set your personal savings goal (min R200).
+  </p>
 
-  <!-- League Cards -->
-  <div *ngIf="leagues.length > 0; else noLeagues" class="leagues-grid">
-    <div class="league-card" *ngFor="let league of leagues">
-      <h2>{{ league.name }}</h2>
-      <p><strong>Description:</strong> {{ league.description }}</p>
-      <p><strong>Status:</strong> {{ league.status }}</p>
-      <p><strong>Max Members:</strong> {{ league.maxMembers }}</p>
-      <p><strong>Start Date:</strong> {{ league.startDate | date }}</p>
-      <p><strong>Due Date:</strong> {{ league.dueDate | date }}</p>
-      <button class="create-button" (click)="joinLeague(league._id)">Join League</button>
-    </div>
-  </div>
+  <form [formGroup]="joinForm" (ngSubmit)="joinLeague()" class="join-form">
 
-  <!-- Empty Message -->
-  <ng-template #noLeagues>
-    <p class="status-text">No savings leagues available to join.</p>
-  </ng-template>
+    <label for="goal">Your Personal Goal</label>
+    <input formControlName="goal" type="number" id="goal" placeholder="Enter goal" required />
 
-  <!-- Response Message -->
-  <p *ngIf="responseMessage" class="status-text">{{ responseMessage }}</p>
+    <label for="league">Select a League</label>
+    <select formControlName="leagueId" id="league" required>
+      <option value="">-- Select a League --</option>
+      <option *ngFor="let league of leagues" [value]="league._id">
+        {{ league.name }} ({{ league.description }}) — Max: {{ league.maxMembers }}
+      </option>
+    </select>
 
-  <!-- Optional: Footer Action Row -->
-  <div class="button-row">
-    <button routerLink="/savings/create" class="create-button">Create a New League</button>
-    <button routerLink="/savings/view" class="create-button">View My Leagues</button>
-  </div>
+    <button type="submit" [disabled]="joinForm.invalid">Join League</button>
+  </form>
+
+  <p *ngIf="responseMessage" class="response-msg">{{ responseMessage }}</p>
 </section>
