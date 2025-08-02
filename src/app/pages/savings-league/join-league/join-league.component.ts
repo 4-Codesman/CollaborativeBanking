@@ -9,7 +9,8 @@ import { environment } from 'src/environments/environment';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule, HttpClientModule],
   templateUrl: './join-league.html',
-  styleUrls: ['./join-league.css']
+  styleUrls: ['./join-league.css'],
+  
 })
 export class JoinLeagueComponent implements OnInit {
   joinForm: FormGroup;
