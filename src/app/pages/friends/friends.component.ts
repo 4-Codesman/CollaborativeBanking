@@ -118,6 +118,7 @@ export class FriendsComponent {
   showFriendList = false;
   showFriendRequests = false;
   showTeamMembersList = false;
+  showAddFriend = false;
 
 
   //click handlers
