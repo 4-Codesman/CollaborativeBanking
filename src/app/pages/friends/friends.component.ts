@@ -58,6 +58,7 @@ export class FriendsComponent {
 
 
   //variables:
+  currentUID: string = ''; 
   friendRequests: any[] = [];
   friendsList: any[] = [];
   leaderboard: any[] = [];
@@ -72,6 +73,7 @@ export class FriendsComponent {
     const uid = this.auth.currentUser?.uid;
 
     if (uid) {
+      this.currentUID = uid; // Store current user ID
       // Fetch friend requests
       this.dataService.getFriendRequests(uid).subscribe({
         next: (requests) => {
