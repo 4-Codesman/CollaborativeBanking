@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://4codesmanwebappbe-drbresg4h5cpcjdm.canadacentral-01.azurewebsites.net/api',
+  apiUrl: 'https://4codesmanwebappbe-drbresg4h5cpcjdm.canadacentral-01.azurewebsites.net',
   firebase: {
     apiKey: "AIzaSyBalXBEIKgzHo23MIzBpEYIwqTv-Neopsc",
     authDomain: "collaborativebanking.firebaseapp.com",

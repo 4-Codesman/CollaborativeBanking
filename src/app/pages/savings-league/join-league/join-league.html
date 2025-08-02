@@ -1,0 +1,18 @@
+<h2>Join a Savings League</h2>
+
+<form [formGroup]="joinForm" (ngSubmit)="joinLeague()">
+  <label for="goal">Your Personal Goal (min R200):</label><br>
+  <input formControlName="goal" type="number" id="goal" placeholder="Enter goal"><br><br>
+
+  <label for="league">Select a League:</label><br>
+  <select formControlName="leagueId" id="league">
+    <option value="">-- Select a League --</option>
+    <option *ngFor="let league of leagues" [value]="league._id">
+      {{ league.name }} ({{ league.description }}) — Max: {{ league.maxMembers }}
+    </option>
+  </select><br><br>
+
+  <button type="submit">Join League</button>
+</form>
+
+<p *ngIf="responseMessage">{{ responseMessage }}</p>
