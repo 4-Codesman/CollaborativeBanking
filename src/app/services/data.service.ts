@@ -34,6 +34,7 @@ export class DataService {
 
   addFriend(code: string, senderUID: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/friends/add`, { code, senderUID });
+  }
 
   getFriendRequests(uid: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/friends/requests/${uid}`);
