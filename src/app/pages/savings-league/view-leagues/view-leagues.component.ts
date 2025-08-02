@@ -29,7 +29,7 @@ export class ViewLeaguesComponent implements OnInit {
 
     this.uid = storedUid;
 
-    this.http.get<any[]>(`${this.baseUrl}/saving-leagues/my/${this.uid}`).subscribe({
+    this.http.get<any[]>(`${this.baseUrl}/saving-leagues/uID/${this.uid}`).subscribe({
       next: (data) => this.leagues = data,
       error: () => this.responseMessage = 'Error fetching your savings leagues.'
     });

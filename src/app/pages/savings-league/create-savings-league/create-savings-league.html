@@ -1,17 +1,30 @@
-<main class="cStokvel-container">
-  <header class="cStokvel-header">
-    <h1>Create a New Savings League</h1>
-    <p class="subtitle">
-      Set your league name, description, start date, member count and your own private savings goal.
-    </p>
+<section class="savings-league-wrapper">
+  <!-- Header with Logo and Back Button -->
+  <header class="savings-header">
+    <div class="logo-container">
+      <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="logo" />
+    </div>
+    <button class="back-button" routerLink="/home">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7" />
+      </svg>
+      Back to Home
+    </button>
   </header>
 
+  <!-- Premium Discovery Heading -->
+  <h1>Create a New Savings League</h1>
+
+  <p class="subtitle" style="text-align: center; margin-top: -1rem; font-size: 1.1rem;">
+    Set your league name, description, start date, member count and your own private savings goal.
+  </p>
+
+  <!-- Styled Form Card -->
   <section class="form-card">
     <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>League Name</mat-label>
-        <input matInput type="text" formControlName="name" required>
+        <input matInput type="text" formControlName="name" required />
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
@@ -21,34 +34,29 @@
 
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Max Members</mat-label>
-        <input matInput type="number" formControlName="maxMembers" min="2" required>
+        <input matInput type="number" formControlName="maxMembers" min="2" required />
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Your Personal Goal (min R200)</mat-label>
-        <input matInput type="number" formControlName="goal" min="200" required>
+        <input matInput type="number" formControlName="goal" min="200" required />
       </mat-form-field>
 
       <div class="date-time-group">
         <mat-form-field appearance="fill">
           <mat-label>Start Date</mat-label>
-          <input matInput type="date" formControlName="startDate" required>
+          <input matInput type="date" formControlName="startDate" required />
         </mat-form-field>
 
         <mat-form-field appearance="fill">
           <mat-label>Start Time</mat-label>
-          <input matInput type="time" formControlName="startTime" required>
+          <input matInput type="time" formControlName="startTime" required />
         </mat-form-field>
       </div>
 
-      <button 
-        type="submit" 
-        mat-raised-button 
-        color="primary" 
-        [disabled]="createForm.invalid">
+      <button type="submit" mat-raised-button color="primary" [disabled]="createForm.invalid" class="create-button">
         Create League
       </button>
     </form>
   </section>
-</main>
-
+</section>
