@@ -25,9 +25,12 @@ export class VStokvelComponent implements OnInit {
 
     if (stokvelId) {
 
-      this.http.get(`${environment.apiUrl}/join/details/${stokvelId}`).subscribe({
+      this.http.get(`${environment.apiUrl}/view/details/${stokvelId}?email=${encodeURIComponent(email!)}`).subscribe({
+      
         next: (data) => {
+          console.log('Stokvel Details Response:', data); 
           this.stokvelDetails = data;
+          console.log('Stokvel Details:', this.stokvelDetails);
           this.loading = false;
         },
         error: (err) => {
