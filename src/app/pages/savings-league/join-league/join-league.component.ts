@@ -48,7 +48,7 @@ export class JoinLeagueComponent implements OnInit {
     }
 
     const { goal, leagueId } = this.joinForm.value;
-    this.http.post(`${environment.apiUrl}/saving-leagues/join/${leagueId}`, { uid, goal })
+    this.http.post(`${environment.apiUrl}/saving-leagues/${leagueId}/join`, { uid, goal })
       .subscribe({
         next: (res: any) => {
           this.responseMessage = res.message || 'Successfully joined the league!';
