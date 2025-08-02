@@ -32,7 +32,8 @@ export class DataService {
   }
 
 
-  addFriend(code: string): Observable<any> {
+  addFriend(code: string): Observable<any> 
+  {
     return this.http.post(`${this.apiUrl}/friends/add`, { code });
   }
 
