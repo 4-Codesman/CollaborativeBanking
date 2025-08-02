@@ -44,7 +44,7 @@ export class JStokvelComponent implements OnInit {
   }
 
 viewDetails(stokvelId: string) {
-    this.http.get<any>(`${environment.apiUrl}/stokvels/details/${stokvelId}`).subscribe({
+    this.http.get<any>(`${environment.apiUrl}/join/details/${stokvelId}`).subscribe({
       next: (data) => {
         this.indStokvel=data;
         this.showPopup=true;
@@ -58,14 +58,14 @@ viewDetails(stokvelId: string) {
     const email=localStorage.getItem('Email');
     if (!email || !this.indStokvel) return;
 
-    this.http.post(`${environment.apiUrl}/join/respond`, {
-      sv_id: this.indStokvel._id,
+    this.http.post(`${environment.apiUrl}/join/join-response`, {
+      stokvelId: this.indStokvel._id,
       email,
       accepted: true
     }).subscribe({
       next: () => {
-        this.closePopup();
         this.stokvelsJ = this.stokvelsJ.filter(s => s.id !== this.indStokvel._id);
+        this.closePopup();
       },
       error: (err) => {
         console.error('Error accepting stokvel:', err);
@@ -77,14 +77,14 @@ viewDetails(stokvelId: string) {
     const email=localStorage.getItem('Email');
     if (!email ||!this.indStokvel) return;
 
-    this.http.post(`${environment.apiUrl}/join/respond`, {
-      sv_id: this.indStokvel._id,
+    this.http.post(`${environment.apiUrl}/join/join-response`, {
+      stokvelId: this.indStokvel._id,
       email,
       accepted: false
     }).subscribe({
       next: () => {
-        this.closePopup();
         this.stokvelsJ = this.stokvelsJ.filter(s => s.id !== this.indStokvel._id);
+        this.closePopup();
       },
       error: (err) => {
         console.error('Error rejecting stokvel:', err);

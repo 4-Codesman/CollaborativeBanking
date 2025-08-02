@@ -1,29 +1,40 @@
-
 <main class="vStokvel-container">
   <header class="vStokvel-header">
-    <h1>Your Stokvel Groups</h1>
+    <h1 *ngIf="!stokvelDetails">Your Stokvel Groups</h1>
+    <h1 *ngIf="stokvelDetails">{{ stokvelDetails.name }}</h1>
   </header>
 
   <section class="vStokvel-content">
-    <div class="vStokvel-list">
-      <div *ngIf="loading" class="loading-text">
-        Loading your stokvels...
-      </div>
 
-      <div *ngIf="!loading && stokvelsV.length > 0">
-        <div class="stokvel-cards">
-          <div class="stokvel-card" *ngFor="let stokvel of stokvelsV">
-            <h2>{{stokvel.name}}</h2>
-            <p>Date, next payout and Stokvel name go here</p>
+    <div *ngIf="!stokvelDetails">
+      <div class="vStokvel-list">
+        <div *ngIf="loading" class="loading-text">
+          Loading...
+        </div>
+
+        <div *ngIf="!loading && stokvelsV.length > 0">
+          <div class="stokvel-cards">
+            <a [routerLink]="['/stokvel/view', stokvel.id]" class="stokvel-card" *ngFor="let stokvel of stokvelsV">
+              <h2>{{stokvel.name}}</h2>
+            </a>
           </div>
         </div>
-      </div>
 
-      <div *ngIf="!loading && stokvelsV.length === 0" class="empty-text">
-        No stokvels yet.<br />
-        Create or Join a stokvel community.
+        <div *ngIf="!loading && stokvelsV.length === 0" class="empty-text">
+          No stokvels yet.<br />
+          Create or Join a stokvel community.
+          </div>
       </div>
     </div>
-  </section>
 
+    <div *ngIf="stokvelDetails && !loading" class="stokvel-details">
+      <p><strong>Amount:</strong> R{{ stokvelDetails.amount }}</p>
+      <p><strong>Period:</strong> {{ stokvelDetails.period }}</p>
+      <p><strong>Start Date:</strong> {{ stokvelDetails.date | date }}</p>
+      <p><strong>Next Payment Date:</strong> {{ stokvelDetails.date | date }}</p>
+      <p><strong>Your Payout Date:</strong> {{stokvelDetails.date}}</p>
+      <button routerLink="/stokvel/view">← View All</button>
+    </div>
+
+  </section>
 </main>

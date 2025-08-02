@@ -26,5 +26,6 @@ export const routes: Routes = [
   { path: 'account-settings', component: AccountSettings },
   { path: 'transaction-history', component: TransactionHistory },
   { path: 'savings/create', component: CreateSavingsLeagueComponent },
-  { path: 'friends', component: FriendsComponent }
+  { path: 'friends', component: FriendsComponent },
+  { path: 'stokvel/view/:id', component: VStokvelComponent }
 ];

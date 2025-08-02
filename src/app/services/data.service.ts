@@ -60,6 +60,4 @@ export class DataService {
   return this.http.get(`${this.apiUrl}/users/${uid}`);
 }
 
-
-
 }
