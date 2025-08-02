@@ -1,8 +1,8 @@
 .friends-container {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #f1f5fa, #ffffff);
+  background: linear-gradient(to bottom right, #f0f4f9, #ffffff);
   min-height: 100vh;
-  padding: 2rem;
+  padding: 2rem 1rem;
   color: #333;
   display: flex;
   flex-direction: column;
@@ -10,40 +10,64 @@
 }
 
 .header {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  text-align: center;
   margin-bottom: 2rem;
 }
 
 .header h1 {
   font-size: 2.5rem;
   color: #002f6c;
+  margin-bottom: 0.4rem;
 }
 
-.friends-section {
-  background-color: #fff;
+.subheading {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.friends-card {
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   width: 100%;
   max-width: 600px;
 }
 
-.friends-section h3 {
+.friends-card h3 {
   font-size: 1.4rem;
   color: #002f6c;
   margin-bottom: 1rem;
 }
 
+.highlight-card {
+  border-left: 5px solid #0070c0;
+  background-color: #f8f9fc;
+}
+
+.highlight-code {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #0070c0;
+}
+
+.note {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.input-row {
+  display: flex;
+  gap: 1rem;
+}
+
 input {
+  flex-grow: 1;
   padding: 0.6rem 1rem;
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
-  margin-right: 1rem;
-  width: 60%;
 }
 
 button {
@@ -54,28 +78,24 @@ button {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   cursor: pointer;
-  margin-top: 0.5rem;
-  margin-right: 0.5rem;
 }
 
 button:hover {
   background-color: #005999;
 }
 
-.request-list,
-.friends-list,
-.leaderboard-list {
-  list-style: none;
-  padding-left: 0;
-}
-
 .request-list li,
 .friends-list div,
 .leaderboard-list li {
-  margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
 }
 
 progress {
@@ -133,16 +153,13 @@ progress {
   font-size: 1rem;
 }
 
-.friend-code {
-  background: #f8f9fc;
-  border-left: 5px solid #0070c0;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
+.leader-name {
+  font-weight: 600;
 }
 
-.friend-code p {
-  font-size: 1.1rem;
-  margin: 0.3rem 0;
+.leader-score {
+  margin-left: auto;
+  margin-right: 0.75rem;
+  font-weight: 500;
+  color: #0070c0;
 }
-
