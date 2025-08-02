@@ -1,66 +1,102 @@
-/* ===== Premium Discovery Styles for Create Savings League ===== */
-
-/* Wrapper for the whole section */
+/* === Wrapper === */
 .savings-league-wrapper {
-  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 600px;
+  margin: 3rem auto;
   padding: 2rem;
-  color: #002f6c;
-  background: white;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  color: #333;
 }
 
-/* Header with Logo and Back Button */
-.savings-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 3rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(0, 47, 108, 0.1);
-}
-
-.logo-container {
-  max-width: 180px;
-  height: auto;
-}
-
-.logo {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 47, 108, 0.1));
-}
-
+/* === Back Button === */
 .back-button {
-  background: rgba(0, 112, 192, 0.1);
+  background: none;
   border: none;
-  color: #0070c0;
-  font-size: 1rem;
-  font-weight: 600;
+  color: #005b9f;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0.75rem 1.25rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  margin-left: auto;
+  font-weight: 500;
+  padding: 0;
 }
 
 .back-button:hover {
-  background: rgba(0, 112, 192, 0.15);
-  transform: translateX(-4px);
+  text-decoration: underline;
 }
 
-.back-button svg {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.2s ease;
+/* === Headings === */
+h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #003057;
+  margin-bottom: 0.5rem;
 }
 
-.back-button:hover svg {
-  transform: translateX(-3px);
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
 }
 
-/* Page Tit*
+/* === Form Container === */
+.form-card {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* === Form Fields === */
+.form-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* Two-column grid layout */
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* === Button === */
+.create-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #003057 !important;
+  color: white !important;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.create-button:hover {
+  background-color: #005b9f !important;
+}
+
+/* === Responsive === */
+@media (max-width: 640px) {
+  .row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .back-button {
+    font-size: 0.85rem;
+  }
+}
