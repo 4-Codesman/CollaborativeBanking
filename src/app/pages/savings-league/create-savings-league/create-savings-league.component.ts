@@ -37,24 +37,30 @@ export class CreateSavingsLeagueComponent {
   onSubmit() {
     if (this.createForm.invalid) return;
 
+    const uid = localStorage.getItem('userID');
+    if (!uid) {
+      console.error('❌ No UID found in localStorage. Cannot create league.');
+      return;
+    }
+
     const { name, description, maxMembers, goal, startDate, startTime } = this.createForm.value;
 
     const fullStart = new Date(`${startDate}T${startTime}`);
     const fullDue = new Date(fullStart);
-    fullDue.setMonth(fullDue.getMonth() + 1); // Set due date 1 month later
+    fullDue.setMonth(fullDue.getMonth() + 1);
 
     const leagueData = {
       name,
       description,
       maxMembers,
-      creatorGoal: goal,
+      creatorGoal: goal, // ✅ Ensure backend receives this
       status: 'open',
       startDate: fullStart,
       dueDate: fullDue,
-      creatorUid: 'mock-uid' // replace with actual UID from auth service
+      creatorUid: uid
     };
 
-    console.log('Creating savings league:', leagueData);
+    console.log('📤 Creating savings league with data:', leagueData);
 
     this.http.post(`${environment.apiUrl}/saving-leagues/create`, leagueData).subscribe({
       next: (res) => console.log('✅ Created:', res),

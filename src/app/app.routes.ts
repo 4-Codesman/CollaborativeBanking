@@ -13,6 +13,7 @@ import { TransactionHistory } from '@pages/transaction-history/transaction-histo
 import { FriendsComponent } from './pages/friends/friends.component';
 import { SavingsLeagueComponent } from './pages/savings-league/savings-league.component';
 import { CreateSavingsLeagueComponent } from './pages/savings-league/create-savings-league/create-savings-league.component';
+import { JoinLeagueComponent } from './pages/savings-league/join-league/join-league.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -26,6 +27,17 @@ export const routes: Routes = [
   { path: 'account-settings', component: AccountSettings },
   { path: 'transaction-history', component: TransactionHistory },
   { path: 'savings/create', component: CreateSavingsLeagueComponent },
-  { path: 'friends', component: FriendsComponent },
-  { path: 'stokvel/view/:id', component: VStokvelComponent }
+  { path: 'join-league', component: JoinLeagueComponent },
+
+
+  // ✅ New route for viewing savings leagues
+  {
+    path: 'savings/view',
+    loadComponent: () =>
+      import('./pages/savings-league/view-leagues/view-leagues.component').then(
+        (m) => m.ViewLeaguesComponent
+      )
+  },
+
+  { path: 'friends', component: FriendsComponent }
 ];
