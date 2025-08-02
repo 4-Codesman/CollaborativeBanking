@@ -132,3 +132,17 @@ progress {
   font-weight: 500;
   font-size: 1rem;
 }
+
+.friend-code {
+  background: #f8f9fc;
+  border-left: 5px solid #0070c0;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+}
+
+.friend-code p {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+}
+
