@@ -52,7 +52,8 @@ export class JoinLeagueComponent implements OnInit {
     this.http.post(`${environment.apiUrl}/saving-leagues/${leagueId}/join`, { uid, goal })
       .subscribe({
         next: (res: any) => {
-          this.responseMessage = res.message || 'Successfully joined the league!';
+          this.responseMessage = res.message || 'Successfully joined the league! + 10 points';
+          alert('Successfully joined the league! + 10 points');
           this.fetchOpenLeagues();  // refresh available leagues
         },
         error: (err) => this.responseMessage = err.error?.error || 'Error joining the league.'

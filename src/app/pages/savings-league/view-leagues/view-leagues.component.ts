@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router'; // ✅ Import RouterModule
 
 @Component({
   selector: 'app-view-leagues',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule // ✅ Allow routerLink in HTML
+  ],
   templateUrl: './view-leagues.html',
   styleUrls: ['./view-leagues.css']
 })
@@ -49,4 +55,6 @@ export class ViewLeaguesComponent implements OnInit {
       error: (err) => this.responseMessage = err.error?.error || 'Failed to join the league.'
     });
   }
+
+
 }

@@ -1,3 +1,4 @@
+
 <section class="savings-league-wrapper">
   <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="discovery-logo" />
 
@@ -10,6 +11,7 @@
     </form>
   </div>
 
+
   <div *ngIf="leagues.length > 0; else noLeagues" class="leagues-grid">
     <div class="league-card" *ngFor="let league of leagues">
       <h2>{{ league.name }}</h2>
@@ -18,7 +20,9 @@
       <p><strong>Max Members:</strong> {{ league.maxMembers }}</p>
       <p><strong>Start Date:</strong> {{ league.startDate | date }}</p>
       <p><strong>Due Date:</strong> {{ league.dueDate | date }}</p>
-      <button class="create-button" (click)="joinLeague(league._id)">Join League</button>
+      <a><button class="create-button" routerLink="/savings/indiv-league">View League</button></a>
+      
+
     </div>
   </div>
 
@@ -28,3 +32,4 @@
 
   <p *ngIf="responseMessage" class="status-text">{{ responseMessage }}</p>
 </section>
+

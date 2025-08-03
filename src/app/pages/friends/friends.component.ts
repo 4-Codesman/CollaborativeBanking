@@ -74,6 +74,10 @@ export class FriendsComponent {
 
     if (uid) {
       this.currentUID = uid; // Store current user ID
+
+      this.fetchFriendRequests();
+      this.fetchFriendsList();
+
       // Fetch friend requests
       this.dataService.getFriendRequests(uid).subscribe({
         next: (requests) => {
@@ -118,6 +122,7 @@ export class FriendsComponent {
   showFriendList = false;
   showFriendRequests = false;
   showTeamMembersList = false;
+  showAddFriend = false;
 
 
   //click handlers
@@ -133,6 +138,8 @@ export class FriendsComponent {
         console.log('✅ Friend request sent:', res);
         alert('Friend request sent!');
         this.friendCode = ''; // ✅ Clear input box
+        this.fetchFriendRequests();   // refresh both
+        this.fetchFriendsList();
       },
       error: (err) => {
         console.error('❌ Failed to send friend request:', err);
@@ -148,7 +155,10 @@ export class FriendsComponent {
     this.dataService.respondToRequest(uid, req.uid, true).subscribe({
       next: () => {
         console.log('✅ Friend request accepted:', req.name);
+        alert('Friend Added! +10 points');
         this.friendRequests = this.friendRequests.filter(r => r.uid !== req.uid);
+        this.fetchFriendRequests();   // refresh both
+        this.fetchFriendsList();
       },
       error: (err) => {
         console.error('❌ Error accepting request:', err);
@@ -164,6 +174,8 @@ export class FriendsComponent {
       next: () => {
         console.log('❌ Friend request rejected:', req.name);
         this.friendRequests = this.friendRequests.filter(r => r.uid !== req.uid);
+        this.fetchFriendRequests();   // refresh both
+        this.fetchFriendsList();
       },
       error: (err) => {
         console.error('❌ Error rejecting request:', err);
@@ -179,6 +191,8 @@ export class FriendsComponent {
       next: () => {
         console.log('🗑️ Removed friend:', friend.name);
         this.friendsList = this.friendsList.filter(f => f.uid !== friend.uid);
+        this.fetchFriendRequests();   // refresh both
+        this.fetchFriendsList();
       },
       error: (err) => {
         console.error('❌ Error removing friend:', err);
@@ -186,4 +200,24 @@ export class FriendsComponent {
     });
   }
 
+  fetchFriendRequests() {
+    this.dataService.getFriendRequests(this.currentUID).subscribe({
+      next: (requests) => this.friendRequests = requests,
+      error: (err) => console.error('Failed to refresh friend requests:', err)
+    });
+  }
+
+  fetchFriendsList() {
+    this.dataService.getFriendsList(this.currentUID).subscribe({
+      next: (friends) => {
+        this.friendsList = friends;
+        this.leaderboard = [...friends].sort((a, b) => (b.personalGoalProgress || 0) - (a.personalGoalProgress || 0));
+      },
+      error: (err) => console.error('Failed to refresh friends list:', err)
+    });
+  }
+
+
+
 }
+

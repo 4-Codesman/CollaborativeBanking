@@ -1,55 +1,41 @@
-<div class="settings-page">
-  <div class="navigation-pill-list">
-    <div class="navigation-pill"><div class="title">Home</div></div>
-    <div class="navigation-pill"><div class="title">Stokvel</div></div>
-    <div class="navigation-pill"><div class="title">SL</div></div>
-    <div class="title-wrapper"><div class="text-wrapper">Settings</div></div>
-  </div>
+<section class="savings-league-wrapper settings-page">
+  <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="discovery-logo" />
+
+  <h1>Settings</h1>
+
+  <p class="motivational-text">
+    Manage your profile, payments, and preferences from one place.
+  </p>
 
   <div class="card-column">
+    <!-- Account Card -->
     <div class="card">
-      <img class="info" src="assets/images/account_circle.png" />
-      <div class="body">
-        <div class="text">
-          <div class="title">Account</div>
-          <div class="body-text-for">Manage your account information.</div>
-        </div>
-        <div class="button-group">
-          <button class="button" (click)="manageAccount()">
-            <span class="text-wrapper">Manage</span>
-          </button>
-        </div>
+      <img class="info" src="assets/images/account_circle.png" alt="Account Icon" />
+      <div class="card-body">
+        <h3 class="card-title">Account</h3>
+        <p class="card-desc">Manage your account information.</p>
+        <button class="create-button" (click)="manageAccount()">Manage</button>
       </div>
     </div>
 
+    <!-- Payment Info -->
     <div class="card">
-      <img class="info" src="assets/images/Info.png" />
-      <div class="body">
-        <div class="text">
-          <div class="title">Payment Information</div>
-          <div class="body-text-for">Manage your payment information.</div>
-        </div>
-        <div class="button-group">
-          <button class="button" (click)="editPaymentInfo()">
-            <span class="text-wrapper">Edit</span>
-          </button>
-        </div>
+      <img class="info" src="assets/images/Info.png" alt="Payment Icon" />
+      <div class="card-body">
+        <h3 class="card-title">Payment Information</h3>
+        <p class="card-desc">Manage your payment information.</p>
+        <button class="create-button" (click)="editPaymentInfo()">Edit</button>
       </div>
     </div>
 
+    <!-- Terms & Conditions -->
     <div class="card">
-      <img class="info" src="assets/images/Info.png" />
-      <div class="body">
-        <div class="text">
-          <div class="title">Terms and Conditions</div>
-          <div class="body-text-for">View our terms and conditions.</div>
-        </div>
-        <div class="button-group">
-          <button class="button" (click)="viewTermsAndConditions()">
-            <span class="text-wrapper">View</span>
-          </button>
-        </div>
+      <img class="info" src="assets/images/Info.png" alt="Info Icon" />
+      <div class="card-body">
+        <h3 class="card-title">Terms and Conditions</h3>
+        <p class="card-desc">View our terms and conditions.</p>
+        <button class="create-button" (click)="viewTermsAndConditions()">View</button>
       </div>
     </div>
   </div>
-</div>
+</section>

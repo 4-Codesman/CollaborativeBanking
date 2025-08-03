@@ -1,16 +1,12 @@
 <section class="savings-league-wrapper">
-
-  <!-- Minimal Back Button -->
-  <button class="back-button" routerLink="/home">
-    ← Back to Home
-  </button>
+  <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="discovery-logo" />
 
   <h1>Create a New Savings League</h1>
-  <p class="subtitle">
-    Set your league name, description, start date, member count, and your private savings goal.
+  <p class="motivational-text">
+    Set your league name, description, start date, member count, and your personal savings goal.
   </p>
 
-  <section class="form-card">
+  <div class="league-summary">
     <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
 
       <mat-form-field appearance="outline" class="form-field">
@@ -50,7 +46,6 @@
       <button type="submit" mat-raised-button color="primary" [disabled]="createForm.invalid" class="create-button">
         Create League
       </button>
-
     </form>
-  </section>
+  </div>
 </section>
