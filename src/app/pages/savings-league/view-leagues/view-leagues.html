@@ -20,7 +20,7 @@
       <p><strong>Max Members:</strong> {{ league.maxMembers }}</p>
       <p><strong>Start Date:</strong> {{ league.startDate | date }}</p>
       <p><strong>Due Date:</strong> {{ league.dueDate | date }}</p>
-      <a><button class="create-button" routerLink="/savings/indiv-league">View League</button></a>
+      <a><button class="create-button" routerLink="/savings/indiv-league" (click)="SetItemsToLocalStorage(league._id)">View League</button></a>
       
 
     </div>

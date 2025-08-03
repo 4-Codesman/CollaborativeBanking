@@ -57,4 +57,8 @@ export class ViewLeaguesComponent implements OnInit {
   }
 
 
+  SetItemsToLocalStorage(league_id: string): void {
+    localStorage.setItem('svl_id', league_id);
+    console.log('League ID set in localStorage:', league_id);
+  }
 }
