@@ -54,8 +54,16 @@ export class DataService {
     return this.http.get(`${this.apiUrl}/friends/PairFriend/${uid}`);
   }
 
-  getUserByUID(uid: string): Observable<any> {
-  return this.http.get(`${this.apiUrl}/users/${uid}`);
-}
+  getUserByUID(uID: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/users/${uID}`);
+  }
+
+  getUsersInSavingLeague(svl_id: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/saving-leagues/users/${svl_id}`);
+  }
+
+  getSavingLeagueById(svl_id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/saving-leagues/${svl_id}`);
+  }
 
 }

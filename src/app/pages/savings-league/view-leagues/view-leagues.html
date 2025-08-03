@@ -1,3 +1,4 @@
+
 <section class="savings-league-wrapper">
   <img src="assets/images/discovery-logo.png" alt="Discovery Logo" class="discovery-logo" />
 
@@ -9,6 +10,7 @@
       <input type="number" id="goal" [(ngModel)]="goal" name="goal" required />
     </form>
   </div>
+
 
   <div *ngIf="leagues.length > 0; else noLeagues" class="leagues-grid">
     <div class="league-card" *ngFor="let league of leagues">
@@ -28,3 +30,4 @@
 
   <p *ngIf="responseMessage" class="status-text">{{ responseMessage }}</p>
 </section>
+

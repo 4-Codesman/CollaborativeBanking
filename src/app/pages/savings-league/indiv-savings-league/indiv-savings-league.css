@@ -1,0 +1,57 @@
+.league-container {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.league-header {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.league-title .label {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.league-name {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.members-section, .progress-summary, .leaderboard {
+  margin-bottom: 2rem;
+}
+
+.user-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.user-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 220px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.quote {
+  font-style: italic;
+  color: #666;
+}
+
+.leaderboard-card {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.leader-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}

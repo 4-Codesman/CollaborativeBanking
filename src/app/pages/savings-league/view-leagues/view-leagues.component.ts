@@ -49,4 +49,10 @@ export class ViewLeaguesComponent implements OnInit {
       error: (err) => this.responseMessage = err.error?.error || 'Failed to join the league.'
     });
   }
+
+  redirectToLeague(leagueId: string): void {
+    console.log(`Redirecting to league with ID: ${leagueId}`);
+    localStorage.setItem('svl_id', leagueId);
+    window.location.href = `/savings/indiv-league`;
+  }
 }

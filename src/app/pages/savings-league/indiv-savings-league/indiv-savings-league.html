@@ -1,0 +1,49 @@
+<div class="league-container" *ngIf="!loading">
+  <!-- Header -->
+  <div class="league-header">
+    <div class="league-title">
+      <span class="label">Savings League</span>
+      <h1 class="league-name">{{ SL.name || 'Unnamed League' }}</h1>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="league-content">
+
+    <!-- Members Section -->
+    <section class="members-section">
+      <h2>Members</h2>
+      <div class="user-cards">
+        <div class="user-card" *ngFor="let user of SL_user">
+          <p class="quote">{{ user.userName || 'Anonymous' }}</p>
+          <div class="user-info">
+            <strong>Progress</strong>
+            <span class="description">
+              {{ getUserProgress(user.userID, user.SavingsLeague_Balance) || 0 }}%
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Leaderboard -->
+    <section class="leaderboard">
+      <h2>Leaderboard</h2>
+      <div class="leaderboard-card">
+        <h3>{{ SL.name }}</h3>
+        <div class="leader-row" *ngFor="let user of SL_user | orderBy: 'progress':true">
+          <span>⭐ {{ user.userName || 'User' }}</span>
+          <span>🎯 {{ user.progress }}%</span>
+        </div>
+
+      </div>
+    </section>
+
+
+  </div>
+</div>
+
+<div *ngIf="loading" class="loading-state">
+  Loading savings league...
+</div>
