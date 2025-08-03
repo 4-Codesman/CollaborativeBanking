@@ -56,9 +56,5 @@ export class ViewLeaguesComponent implements OnInit {
     });
   }
 
-  redirectToLeague(leagueId: string): void {
-    console.log(`Redirecting to league with ID: ${leagueId}`);
-    localStorage.setItem('svl_id', leagueId);
-    window.location.href = '/savings/indiv-league';
-  }
+
 }
