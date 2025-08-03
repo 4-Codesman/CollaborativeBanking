@@ -19,7 +19,8 @@
   <!-- Pop-up Details -->
   <div *ngIf="showPopup" class="stokvel-popup">
     <div class="popup-content">
-      <h2>{{indStokvel?.name}}</h2>
+      <h2>{{ indStokvel?.name }} +{{ getStokvelPoints() }} Points ⭐</h2>
+
       <p><strong>Type:</strong> {{indStokvel?.type }}</p>
       <p><strong>Amount:</strong> {{indStokvel?.amount | currency:'ZAR' }}</p>
       <p><strong>Payout Period:</strong> {{ indStokvel?.period }}</p>

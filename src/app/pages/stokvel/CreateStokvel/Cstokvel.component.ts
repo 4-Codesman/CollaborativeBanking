@@ -127,7 +127,7 @@ export class CStokvelComponent implements OnInit {
       this.dataService.createStokvel(stokvelData).subscribe({
         next: res => {console.log('Stokvel created:', res);
           this.router.navigate(['/home']);
-          window.alert("Stokvel created successfully! Awaiting members' acceptance");
+          window.alert("Stokvel Successfully Created! +10 POINTS ⭐");
 
         },
         error: err => console.error('Error creating stokvel', err)

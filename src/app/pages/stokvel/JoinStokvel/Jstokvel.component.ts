@@ -54,7 +54,33 @@ viewDetails(stokvelId: string) {
       }
     });
   }
+  pointsMap: { [key: string]: number }= 
+  {
+    weekly:2,
+    biweekly:4,
+    monthly:6,
+    quarterly:8,
+    annually:10
+  };
+  
+  getStokvelPoints(): number {
+    return this.pointsMap[this.indStokvel?.period?.toLowerCase()] ?? 0;
+  }
+  
   acceptStokvel() {
+
+    const period = this.indStokvel?.period?.toLowerCase();
+
+    const pointsMap: { [key: string]: number } = {
+      weekly: 2,
+      biweekly: 4,
+      monthly: 6,
+      quarterly: 8,
+      annually: 10
+    };
+  
+    const points = pointsMap[period] ?? 1;
+
     const email=localStorage.getItem('Email');
     if (!email || !this.indStokvel) return;
 
@@ -65,6 +91,7 @@ viewDetails(stokvelId: string) {
     }).subscribe({
       next: () => {
         this.stokvelsJ = this.stokvelsJ.filter(s => s.id !== this.indStokvel._id);
+        window.alert(`Stokvel Successfully Joined! +${points} POINTS ⭐`);
         this.closePopup();
       },
       error: (err) => {

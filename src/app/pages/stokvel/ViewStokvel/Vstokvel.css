@@ -108,3 +108,45 @@
 .create-button:hover {
   background-color: #005b9f;
 }
+.circular-progress-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.circular-progress-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  width: 60px;
+  height: 60px;
+}
+
+.progress-ring__bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3;
+}
+
+.progress-ring__value {
+  fill: none;
+  stroke: purple;
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.4s ease;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 0.8rem;
+  transform: translate(-50%, -50%);
+  color: #333;
+  font-weight: bold;
+}
