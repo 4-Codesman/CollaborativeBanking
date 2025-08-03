@@ -155,6 +155,7 @@ export class FriendsComponent {
     this.dataService.respondToRequest(uid, req.uid, true).subscribe({
       next: () => {
         console.log('✅ Friend request accepted:', req.name);
+        alert('Friend Added! +10 points');
         this.friendRequests = this.friendRequests.filter(r => r.uid !== req.uid);
         this.fetchFriendRequests();   // refresh both
         this.fetchFriendsList();

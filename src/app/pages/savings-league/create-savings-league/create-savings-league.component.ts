@@ -64,7 +64,10 @@ export class CreateSavingsLeagueComponent {
     console.log('📤 Creating savings league with data:', leagueData);
 
     this.http.post(`${environment.apiUrl}/saving-leagues/create`, leagueData).subscribe({
-      next: (res) => console.log('✅ Created:', res),
+      next: (res) => {
+        console.log('✅ Created:', res)
+        alert('Savings league created successfully! + 10 points');
+      },
       error: (err) => console.error('❌ Error:', err)
     });
   }
