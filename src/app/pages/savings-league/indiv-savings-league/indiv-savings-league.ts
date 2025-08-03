@@ -97,4 +97,30 @@ export class IndivSavingsLeague {
     }
     return null;
   }
+
+  paymentProcessing = false;
+
+onPayClick(): void {
+  // Disable the button while processing
+  this.paymentProcessing = true;
+  const userId = localStorage.getItem('userID') || '';
+  this.dataService.payIntoSavingLeague(userId, 200, 'SavingsLeague').subscribe({
+    next: (response) => {
+      console.log('Payment successful:', response);
+      alert('Payment successful!'); // Notify user of success
+      this.paymentProcessing = false; // Re-enable button
+    },
+    error: (error) => {
+      console.error('Payment error:', error);
+      alert('Payment failed. Please try again.'); // Notify user of failure
+      this.paymentProcessing = false; // Re-enable button
+    }
+  });
+  setTimeout(() => {
+    // Simulate success
+    alert('Payment flow would be triggered here.'); 
+    this.paymentProcessing = false;
+  }, 1500);
+}
+
 }

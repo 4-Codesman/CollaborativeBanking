@@ -1,27 +1,118 @@
 .league-container {
   padding: 2rem;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, Arial,
+    sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #1f2d3d;
+  background: #f5f7fa;
+  border-radius: 12px;
 }
 
 .league-header {
-  background-color: #f0f0f0;
-  padding: 1rem;
-  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
   margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  box-shadow: 0 6px 18px -6px rgba(31, 45, 61, 0.1);
+}
+
+.league-title {
+  flex: 1;
+  min-width: 220px;
 }
 
 .league-title .label {
-  font-size: 0.9rem;
-  color: #888;
+  display: inline-block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
 }
 
 .league-name {
   margin: 0;
   font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
 }
 
-.members-section, .progress-summary, .leaderboard {
+.payment-cta {
+  flex-shrink: 0;
+}
+
+.btn-pay {
+  background: linear-gradient(135deg, #6366f1, #a78bfa);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 8px 20px -4px rgba(103, 80, 164, 0.4);
+}
+
+.btn-pay:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-pay:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -4px rgba(103, 80, 164, 0.5);
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.members-section,
+.leaderboard {
   margin-bottom: 2rem;
+}
+
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.subtle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
 }
 
 .user-cards {
@@ -31,27 +122,97 @@
 }
 
 .user-card {
-  background: #fff;
-  border: 1px solid #ccc;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
-  padding: 1rem;
-  width: 220px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 1rem 1rem 1.25rem;
+  width: 250px;
+  box-shadow: 0 10px 24px -8px rgba(31, 45, 61, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .quote {
   font-style: italic;
-  color: #666;
+  color: #4b5563;
+  margin: 0;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.description {
+  background: #eef2f7;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 600;
 }
 
 .leaderboard-card {
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 10px;
+  background: #ffffff;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px -8px rgba(31, 45, 61, 0.08);
 }
 
 .leader-row {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px solid #f0f4fa;
+  font-size: 0.95rem;
+}
+
+.leader-row:last-child {
+  border-bottom: none;
+}
+
+.user-name {
+  font-weight: 500;
+}
+
+.user-progress {
+  font-weight: 600;
+}
+
+.loading-state {
+  text-align: center;
+  font-size: 1rem;
+  padding: 2rem;
+  color: #556d94;
+}
+
+.payment-cta {
+  flex-shrink: 0;
+}
+
+.pay-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.payment-input {
+  width: 100px;
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #d1d9e6;
+  font-size: 0.9rem;
+  outline: none;
+  background: #f9fafe;
+  appearance: none;
+  transition: box-shadow .2s, border-color .2s;
+}
+
+.payment-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
 }

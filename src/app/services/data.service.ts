@@ -66,4 +66,8 @@ export class DataService {
     return this.http.get(`${this.apiUrl}/saving-leagues/${svl_id}`);
   }
 
+  payIntoSavingLeague(uID: string, Amount: number, tag: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/transactions/incoming`, { uID, Amount, tag });
+  }
+
 }

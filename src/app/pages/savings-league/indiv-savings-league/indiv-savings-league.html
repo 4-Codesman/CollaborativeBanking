@@ -1,18 +1,40 @@
 <div class="league-container" *ngIf="!loading">
   <!-- Header -->
   <div class="league-header">
-    <div class="league-title">
-      <span class="label">Savings League</span>
-      <h1 class="league-name">{{ SL.name || 'Unnamed League' }}</h1>
+  <div class="league-title">
+    <span class="label">Savings League</span>
+    <h1 class="league-name">{{ SL.name || 'Unnamed League' }}</h1>
+  </div>
+  <div class="payment-cta">
+    <div class="pay-row">
+      <input
+        type="text"
+        class="payment-input"
+        placeholder="Amount"
+        aria-label="Payment amount"
+      />
+      <!-- Payment button -->
+      <button
+        class="btn-pay"
+        aria-label="Contribute to league"
+        (click)="onPayClick()"
+        [disabled]="paymentProcessing"
+      >
+        <span *ngIf="!paymentProcessing">💳 Contribute</span>
+        <span *ngIf="paymentProcessing" class="spinner" aria-hidden="true"></span>
+      </button>
     </div>
   </div>
+</div>
 
   <!-- Main Content -->
   <div class="league-content">
-
     <!-- Members Section -->
     <section class="members-section">
-      <h2>Members</h2>
+      <div class="section-header">
+        <h2>Members</h2>
+        <p class="subtle">Track each member's progress toward their goal.</p>
+      </div>
       <div class="user-cards">
         <div class="user-card" *ngFor="let user of SL_user">
           <p class="quote">{{ user.userName || 'Anonymous' }}</p>
@@ -26,21 +48,23 @@
       </div>
     </section>
 
-
     <!-- Leaderboard -->
     <section class="leaderboard">
-      <h2>Leaderboard</h2>
+      <div class="section-header">
+        <h2>Leaderboard</h2>
+        <p class="subtle">Top savers motivating the group.</p>
+      </div>
       <div class="leaderboard-card">
         <h3>{{ SL.name }}</h3>
-        <div class="leader-row" *ngFor="let user of SL_user | orderBy: 'progress':true">
-          <span>⭐ {{ user.userName || 'User' }}</span>
-          <span>🎯 {{ user.progress }}%</span>
+        <div
+          class="leader-row"
+          *ngFor="let user of SL_user | orderBy: 'progress':true"
+        >
+          <span class="user-name">⭐ {{ user.userName || 'User' }}</span>
+          <span class="user-progress">🎯 {{ user.progress }}%</span>
         </div>
-
       </div>
     </section>
-
-
   </div>
 </div>
 
